@@ -1,0 +1,29 @@
+{
+  "name": "marketplace-moyuy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon -e html,css,ejs, server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arlost66/Marketplace-moyuy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arlost66/Marketplace-moyuy/issues"
+  },
+  "homepage": "https://github.com/arlost66/Marketplace-moyuy#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
