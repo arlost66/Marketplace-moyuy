@@ -1,17 +1,39 @@
 
 
-const express = require('express');
+
 const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
+
 const initializePassport = require('../passport-config');
+
+
+initializePassport(passport,
+    async email => {
+        const temp = email;
+        return await prisma.users.findUnique({
+            where: {
+                email: temp
+            }
+        });
+    },
+    async id => {
+        const temp = id;
+        return await prisma.users.findUnique({
+            where: {
+                id: temp
+            }
+        })
+    }
+);
+
 
 
 const prisma = new PrismaClient();
 
 
-function user(req, res) {
-    res.render('users/user');
+function userHomepage(req, res) {
+    res.render('users/homepage', { name: req.user.name });
 }
 
 function getRegister(req, res) {
@@ -29,26 +51,57 @@ async function postRegister(req, res) {
                 password: hashedPassword
             },
         })
-        res.redirect('/user/login')
+        res.redirect('/login')
 
     } catch (error) {
-        res.redirect('/user/register')
+        res.redirect('/register')
     }
 }
 
 function getLogin(req, res) {
     res.render('users/login'); //render is file location.
 }
+//controller for post login is in ROUTER
 
+/*function postLogin() {
+    passport.authenticate('local', {
+        successRedirect: '/users/homepage',
+        failureRedirect: '/users/login',
+        failureFlash: true
+    })
+}*/
+function logout(req, res, next) {
+    req.logout((err) => {
+        if (err) { return next(err); }
+        res.redirect('/login');
 
-function postLogin(req, res) {
+    });
 
 }
 
+
+
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/login')
+}
+
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/');
+    }
+    next();
+}
+
 module.exports = {
-    user,
+    userHomepage,
     getRegister,
     getLogin,
     postRegister,
-    postLogin,
+    // postLogin,
+    checkAuthenticated,
+    checkNotAuthenticated,
+    logout
 }

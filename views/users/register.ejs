@@ -1,31 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
-  </head>
-  <body>
-    <h2>Register</h2>
-    <form action="/user/register" method="post">
-      <div>
-        <label for="nameInput">Name</label>
-        <input type="text" name="name" id="nameInput" />
-      </div>
+<h2>Register</h2>
+<form action="/register" method="post">
+  <div>
+    <label for="nameInput">Name</label>
+    <input type="text" name="name" id="nameInput" required />
+  </div>
 
-      <div>
-        <label for="emailInput">Email</label>
-        <input type="text" name="email" id="emailInput" />
-      </div>
+  <div>
+    <label for="emailInput">Email</label>
+    <input type="email" name="email" id="emailInput" required />
+  </div>
 
-      <div>
-        <label for="passwordInput">Password</label>
-        <input type="text" name="password" id="passwordInput" />
-      </div>
+  <div>
+    <label for="passwordInput">Password</label>
+    <input type="password" name="password" id="passwordInput" required />
+  </div>
 
-      <input type="submit" />
-    </form>
-    <a href="/user/login">Back to login</a>
-  </body>
-</html>
+  <input type="submit" />
+</form>
+<a href="/login">Back to login</a>
