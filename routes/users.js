@@ -9,7 +9,6 @@ const {
     getRegister,
     getLogin,
     postRegister,
-    postLogin,
     checkAuthenticated,
     checkNotAuthenticated,
     logout
@@ -17,13 +16,13 @@ const {
 
 
 router.route('/')
-    .get(checkAuthenticated, userHomepage); //.route is  used for chaining
+    .get(checkAuthenticated, userHomepage); // CUSTOMER AND ADMIN LANDING PAGE
 
-router.route('/register')
+router.route('/register')// CUSTOMER AND ADMIN REGISTER PAGE
     .get(checkNotAuthenticated, getRegister)
     .post(checkNotAuthenticated, postRegister);
 
-router.route('/login')
+router.route('/login')// CUSTOMER AND ADMIN LOGiN PAGE
     .get(checkNotAuthenticated, getLogin)
 
     .post(checkNotAuthenticated, passport.authenticate('local', {
@@ -32,7 +31,7 @@ router.route('/login')
         failureFlash: true
     }));
 
-router.route('/logout')
+router.route('/logout') //LOGOUT BUTTON
     .delete(logout);
 
 

@@ -20,6 +20,7 @@ app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 
 const userRouter = require('./routes/users');
+const adminRouter = require('./routes/admin');
 
 app.use(flash());
 app.use(session({
@@ -32,6 +33,12 @@ app.use(passport.session());
 app.use(methodOverride('_method'));
 
 app.use('/', userRouter);
+app.use('/admin', adminRouter);
+
+//temporary
+app.use(function (req, res) {
+    res.status(404).end("Page Doesn't Exist");
+});
 
 
 
