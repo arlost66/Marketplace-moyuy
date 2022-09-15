@@ -71,6 +71,11 @@ function getLogin(req, res) {
         failureFlash: true
     })
 }*/
+
+function getShop(req, res) {
+    res.render('users/shop');
+}
+
 function logout(req, res, next) {
     req.logout((err) => {
         if (err) { return next(err); }
@@ -98,6 +103,7 @@ function checkNotAuthenticated(req, res, next) {
 
 function checkNotAuthenticatedAdmin(req, res, next) {
     if (req.isAuthenticated()) {
+        console.log("TEST");
         return res.render('admin/adminHomepage')
     }
     next();
@@ -112,5 +118,8 @@ module.exports = {
     checkAuthenticated,
     checkNotAuthenticated,
     checkNotAuthenticatedAdmin,
-    logout
+    getShop,
+    logout,
+
+
 }

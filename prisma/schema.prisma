@@ -16,9 +16,33 @@ enum Role {
 }
 
 model users {
-  id       Int    @id @default(autoincrement())
-  name     String @db.VarChar(255)
-  email    String @unique @db.VarChar(255)
-  password String @db.Char(60)
-  role     Role   @default(USER)
+  id       Int      @id @default(autoincrement())
+  name     String   @db.VarChar(255)
+  email    String   @unique @db.VarChar(255)
+  password String   @db.Char(60)
+  role     Role     @default(USER)
+  orders   orders[]
+}
+
+model orders {
+  id     Int    @id @default(autoincrement())
+  total  Float  @db.Double
+  status String @db.VarChar(255)
+
+  product products[]
+
+  userId Int
+  user   users @relation(fields: [userId], references: [id])
+}
+
+model products {
+  id          Int    @id @default(autoincrement())
+  name        String @db.VarChar(255)
+  type        String @db.VarChar(255)
+  cost        Float  @db.Float
+  description String @db.Text
+  stock       Int    @db.Int
+
+  orders   orders? @relation(fields: [ordersId], references: [id])
+  ordersId Int?
 }

@@ -11,6 +11,7 @@ const {
     postRegister,
     checkAuthenticated,
     checkNotAuthenticated,
+    getShop,
     logout
 } = require('../controllers/users.js');
 
@@ -21,7 +22,6 @@ router.route('/')
 router.route('/register')// CUSTOMER AND ADMIN REGISTER PAGE
     .get(checkNotAuthenticated, getRegister)
     .post(checkNotAuthenticated, postRegister);
-
 router.route('/login')// CUSTOMER AND ADMIN LOGiN PAGE
     .get(checkNotAuthenticated, getLogin)
 
@@ -34,5 +34,7 @@ router.route('/login')// CUSTOMER AND ADMIN LOGiN PAGE
 router.route('/logout') //LOGOUT BUTTON
     .delete(logout);
 
+
+router.route('/shop').get(checkAuthenticated, getShop)
 
 module.exports = router
