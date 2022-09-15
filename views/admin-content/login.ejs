@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Admin Login Component</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+
+  <body>
+    <div class="content d-md-flex flex-row-reverse">
+      <!--Login Bar-->
+      <div
+        class="login d-flex align-items-start justify-content-center flex-column flex-shrink-0 p-5 bg-white shadow"
+      >
+        <h1 class="text-primary display-2 fw-semibold">Sign In</h1>
+        <div class="container">
+          <form>
+            <div class="my-4 col-10 shadow">
+              <label for="adminEmail" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="adminEmail"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div class="my-4 col-10 shadow">
+              <label for="adminPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="adminPassword" />
+            </div>
+            <a
+              href="admin-sidebar.html"
+              type="submit"
+              class="btn btn-primary shadow m-2 px-4"
+              id="loginBtn"
+            >
+              Login
+            </a>
+          </form>
+        </div>
+      </div>
+      <!--Content-->
+      <div
+        class="container-fluid d-flex flex-column align-content-center justify-content-center flex-fill bg-primary"
+      >
+        <h1 class="display-1 fw-bold text-tertiary mx-5">
+          Betamoyuy Market
+          <hr class="border border-top-5 border-tertiary opacity-100" />
+        </h1>
+      </div>
+    </div>
+
+    <!---->
+  </body>
+</html>
