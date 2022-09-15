@@ -101,13 +101,7 @@ function checkNotAuthenticated(req, res, next) {
     next();
 }
 
-function checkNotAuthenticatedAdmin(req, res, next) {
-    if (req.isAuthenticated()) {
-        console.log("TEST");
-        return res.render('admin/adminHomepage')
-    }
-    next();
-}
+
 
 module.exports = {
     userHomepage,
@@ -117,7 +111,6 @@ module.exports = {
     // postLogin,
     checkAuthenticated,
     checkNotAuthenticated,
-    checkNotAuthenticatedAdmin,
     getShop,
     logout,
 

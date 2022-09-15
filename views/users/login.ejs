@@ -1,17 +1,55 @@
-<h2>Login</h2>
-<% if(messages.error){ %> <%= messages.error%> <% }%>
-<div>
-  <form action="/login" method="post">
-    <div>
-      <label for="emailInput">Email</label>
-      <input type="email" name="email" id="emailInput" required />
-    </div>
+<div class="content d-md-flex flex-row-reverse">
+  <!--Login Bar-->
+  <div
+    class="login d-flex align-items-start justify-content-center flex-column flex-shrink-0 p-5 bg-white shadow"
+  >
+    <h1 class="text-primary display-2 fw-semibold">Sign In</h1>
+    <div class="container">
+      <form action="/login" method="post">
+        <div class="my-4 col-10 shadow">
+          <% if(messages.error){ %> <%= messages.error%> <% }%>
+          <label for="emailInput" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="emailInput"
+            name="email"
+            aria-describedby="emailHelp"
+            required
+          />
+        </div>
+        <div class="my-4 col-10 shadow">
+          <label for="passwordInput" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="passwordInput"
+            name="password"
+            required
+          />
+        </div>
 
-    <div>
-      <label for="passwordInput">Password</label>
-      <input type="password" name="password" id="emailInput" required />
+        <button class="btn btn-primary shadow m-2 px-4" id="loginBtn">
+          Login
+        </button>
+      </form>
+
+      <a
+        href="/register"
+        class="btn btn-primary shadow m-2 px-4"
+        id="registerBtn"
+      >
+        Register
+      </a>
     </div>
-    <input type="submit" />
-  </form>
-  <a href="/register">Register</a>
+  </div>
+  <!--Content-->
+  <div
+    class="container-fluid d-flex flex-column align-content-center justify-content-center flex-fill bg-primary"
+  >
+    <h1 class="display-1 fw-bold text-light mx-5">
+      Betamoyuy Market
+      <hr class="border border-top-5 border-light opacity-100" />
+    </h1>
+  </div>
 </div>

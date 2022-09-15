@@ -8,14 +8,16 @@ const { adminHomepage,
     getCustomerManagement
 } = require('../controllers/admin');
 
-const { checkAuthenticated,
-    checkNotAuthenticatedAdmin } = require('../controllers/users');
+const { checkAuthenticated
+} = require('../controllers/users');
 
 
 //prefix admin
 
+
 adminRouter.route('/')//homepage sa admin
     .get(checkAuthenticated, isAdmin, adminHomepage);//admin Dashboard Route
+
 
 adminRouter.route('/customer-management')
     .get(checkAuthenticated, isAdmin, getCustomerManagement);
