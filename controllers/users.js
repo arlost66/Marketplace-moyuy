@@ -48,7 +48,8 @@ async function postRegister(req, res) {
             data: {
                 name: req.body.name,
                 email: req.body.email,
-                password: hashedPassword
+                password: hashedPassword,
+                role: req.body.role
             },
         })
         res.redirect('/login')
@@ -95,6 +96,13 @@ function checkNotAuthenticated(req, res, next) {
     next();
 }
 
+function checkNotAuthenticatedAdmin(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.render('admin/adminHomepage')
+    }
+    next();
+}
+
 module.exports = {
     userHomepage,
     getRegister,
@@ -103,5 +111,6 @@ module.exports = {
     // postLogin,
     checkAuthenticated,
     checkNotAuthenticated,
+    checkNotAuthenticatedAdmin,
     logout
 }
