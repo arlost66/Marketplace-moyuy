@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
+  require('dotenv').config();
 }
 
 const express = require('express');
@@ -15,19 +15,21 @@ console.clear();
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views')
-app.set('layout', 'layouts/layout')
-app.use(expressLayouts)
+app.set('views', __dirname + '/views');
+app.set('layout', 'layouts/layout');
+app.use(expressLayouts);
 
 const userRouter = require('./routes/users');
 const adminRouter = require('./routes/admin');
 
 app.use(flash());
-app.use(session({
+app.use(
+  session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
-}));
+    saveUninitialized: false,
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride('_method'));
@@ -37,12 +39,10 @@ app.use('/admin', adminRouter);
 
 //temporary
 app.use(function (req, res) {
-    res.status(404).end("Page Doesn't Exist");
+  res.status(404).end("Page Doesn't Exist");
 });
-
-
 
 const port = 8081 || process.env.PORT;
 app.listen(port, () => {
-    console.log("Server Running");
+  console.log('Server Running');
 });
