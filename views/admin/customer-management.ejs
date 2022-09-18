@@ -1,1 +1,7 @@
 <h2>Customer management Page</h2>
+
+<!--'data' kay ang variable for all User sa database-->
+<% if(data.length >0) %> <% data.forEach(element => { %>
+<div><%=element.name %></div>
+<div><%=element.email %></div>
+<% }) %>

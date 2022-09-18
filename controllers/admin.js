@@ -1,4 +1,5 @@
-const { PrismaClient } = require('@prisma/client');
+const { PrismaClient, prisma } = require('@prisma/client');
+const prisma2 = new PrismaClient();
 
 function adminHomepage(req, res) {
     res.render('admin/adminHomepage');
@@ -25,12 +26,27 @@ async function isAdmin(req, res, next) {
 
 }
 
-function getProductManagement(req, res) {
+async function getProductManagement(req, res) {
+
+
+
+
     res.render('admin/product-management');
 }
 
-function getCustomerManagement(req, res) {
-    res.render('admin/customer-management');
+async function getCustomerManagement(req, res) {
+
+    //query all users by email alphabetically
+    try {
+        const data = await prisma2.users.findMany({
+            orderBy: {
+                email: 'asc'
+            }
+        });
+        res.render('admin/customer-management', { title: "Customer Data", data });
+    } catch (error) {
+        throw error;
+    }
 }
 
 

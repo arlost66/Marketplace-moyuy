@@ -3,6 +3,8 @@
 
 const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcrypt');
+const flash = require('express-flash');
+const { use } = require('passport');
 const passport = require('passport');
 
 const initializePassport = require('../passport-config');
@@ -55,7 +57,8 @@ async function postRegister(req, res) {
         res.redirect('/login')
 
     } catch (error) {
-        res.redirect('/register')
+        new Error('Email already exists')
+        res.redirect('/register');
     }
 }
 
