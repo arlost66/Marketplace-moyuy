@@ -1,3 +1,78 @@
+<div
+  class="container-fluid d-flex flex-column position-relative bg-primary opacity-75 vh-100"
+>
+  <div
+    class="card d-flex flex-row align-content-center justify-content-center position-absolute shadow-lg rounded-4 bg-light overflow-hidden top-50 start-50 translate-middle h-50 w-25"
+  >
+    <div
+      class="card-body position-relative align-content-center justify-content-center"
+    >
+      <div
+        class="h1 align-self-center mx-5 my-3 text-center fw-semibold text-primary my-md-1"
+      >
+        Register
+      </div>
+      <!-- FORM -->
+      <div class="container">
+        <form class="d-flex flex-column" action="/register" method="post">
+          <div>
+            <label
+              for="nameInput"
+              class="form-label mb-lg-2 mt-lg-4 mb-md-0 mt-md-1"
+              >Name:</label
+            >
+            <input
+              type="text"
+              name="name"
+              id="nameInput"
+              class="form-control border-primary"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="emailInput" class="form-label mb-2 mt-4 mb-md-0 mt-md-1"
+              >Email:</label
+            >
+            <input
+              class="form-control border border-primary"
+              type="email"
+              name="email"
+              id="emailInput"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              for="passwordInput"
+              class="form-label mb-2 mt-4 mb-md-0 mt-md-1"
+              >Password:</label
+            >
+            <input
+              class="form-control border-primary"
+              type="password"
+              name="password"
+              id="passwordInput"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary m-2 align-self-center shadow"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+      <div class="h6 my-3 mx-3">
+        Already have an account? <a href="/login">Login.</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
 <h2>Register</h2>
 <form action="/register" method="post">
   <div>
@@ -22,4 +97,4 @@
 
   <input type="submit" />
 </form>
-<a href="/login">Back to login</a>
+<a href="/login">Back to login</a> -->
