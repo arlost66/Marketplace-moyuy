@@ -1,1 +1,316 @@
 <h2>Product Management page</h2>
+<!--Add product Add form for modal-->
+<!--
+<form action="/admin/product-management" method="post">
+  <div>
+    <label for="name">Name: </label>
+    <input type="text" id="name" name="name" required />
+  </div>
+
+  <div>
+    <label for="type">Type:</label>
+    <input type="text" name="type" id="type" required />
+  </div>
+
+  <div>
+    <label for="cost">Cost:</label>
+    <input type="number" name="cost" id="cost" step="0.01" min="0" required />
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description" required />
+  </div>
+
+  <div>
+    <label for="stock">Stock:</label>
+    <input type="number" name="stock" id="stock" required />
+  </div>
+  <div>
+    <input type="submit" />
+</form> -->
+<div class="content d-md-flex flex-row">
+  <!--Sidebar-->
+  <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-primary shadow">
+    <!--Logo-->
+    <a
+      href=""
+      class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
+    >
+      <img
+        class="rounded-circle h-75 m-2"
+        src="../../public/img/lao-logo.png"
+        alt="lao"
+      />
+      <h3 class="text-text">Betamoyuy</h3>
+    </a>
+    <hr class="border border-top-5 border-text opacity-100" />
+    <!--Navigation-->
+    <div class="container mb-auto">
+      <ul
+        class="nav nav-pills flex-column mb-auto list-unstyled nav-hover py-2"
+      >
+        <li class="nav-item justify-content-center my-1">
+          <a href="#" class="nav-link text-text fs-4" aria-disabled="true">
+            <i class="bi bi-house-door me-2"></i>
+            Home
+          </a>
+        </li>
+        <li class="nav-item my-1">
+          <a href="#" class="nav-link text-text fs-4">
+            <i class="bi bi-person me-2"></i>
+            Customers
+          </a>
+        </li>
+        <li class="nav-item my-1">
+          <a href="#" class="nav-link text-text fs-4">
+            <i class="bi bi-cart-dash me-2"></i>
+            Orders
+          </a>
+        </li>
+        <li class="nav-item my-1">
+          <a href="#" class="nav-link text-text fs-4">
+            <i class="bi bi-cart4 me-2"></i>
+            Products
+          </a>
+        </li>
+        <li class="nav-item my-1">
+          <a href="#" class="nav-link text-text fs-4">
+            <i class="bi bi-card-checklist me-2"></i>
+            Stocks
+          </a>
+        </li>
+      </ul>
+    </div>
+    <hr class="border border-top-5 border-tertiary opacity-100" />
+    <!--User-->
+    <div class="dropdown just px-4">
+      <a
+        href="#"
+        class="d-flex align-items-center text-text text-decoration-none dropdown-toggle"
+        id="dropdown1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <img
+          src="../../public/img/profile-pic.svg"
+          alt=""
+          width="40px"
+          height="40px"
+          class="rounded-circle me-2"
+        />
+        <h3 class="mx-1 text-primary-text">Admin1</h3>
+      </a>
+      <ul
+        class="dropdown-menu dropdown-menu-light text-small shadow"
+        aria-labelledby="dropdown1"
+      >
+        <li>
+          <a href="#" class="dropdown-item"> Edit Profile </a>
+        </li>
+        <li>
+          <a href="#" class="dropdown-item"> Settings </a>
+        </li>
+        <li>
+          <hr class="dropdown-divider" />
+        </li>
+        <li>
+          <a href="#" class="dropdown-item"> Sign out </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--Content-->
+  <!-- <main>%- body</main>-->
+  <div
+    class="container-fluid pt-5 d-flex flex-column justify-content-start bg-back"
+  >
+    <div class="container text-tertiary">
+      <h1>Template</h1>
+      <p class="mb-4">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
+        possimus optio ab impedit neque reprehenderit.
+      </p>
+      <hr class="border border-top-5 border-tertiary opacity-100" />
+    </div>
+    <div class="container text-tertiary d-flex flex-row my-4 position-relative">
+      <h5>Sort</h5>
+      <h5>Filter</h5>
+      <h5>Sort</h5>
+      <h5>Searchbar</h5>
+      <button
+        class="btn btn-primary position-absolute text-tertiary end-0 mx-4"
+      >
+        Add
+      </button>
+    </div>
+    <div class="container">
+      <div class="container-fluid">
+        <table class="table bg-secondary text-tertiary">
+          <thead>
+            <tr>
+              <th scope="col">Col 1</th>
+              <th scope="col">Col 2</th>
+              <th scope="col">Col 3</th>
+              <th scope="col">Col 4</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr>
+              <th scope="row">1</th>
+              <td>Test 1</td>
+              <td>Test 2</td>
+              <td>Test 3</td>
+            </tr>
+            <% if(data.length >0) %> <% data.forEach(element => { %>
+            <tr>
+              <td><%=element.name %></td>
+              <td><%=element.type %></td>
+              <td><%=element.cost %></td>
+              <td><%=element.stock %></td>
+
+              <td>
+                <button
+                  class="id"
+                  value="<%=element.id%>"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addModal"
+                >
+                  Edit
+                </button>
+
+                <button
+                  class="delete"
+                  value="<%= element.id%>"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteModal"
+                >
+                  Delete
+                </button>
+              </td>
+              <!--Button for for editting this data and should be linked to MODAL-->
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-end">
+            <li class="page-item">
+              <a class="page-link bg-primary text-tertiary" href="/"
+                >Previous</a
+              >
+            </li>
+            <li class="page-item">
+              <a class="page-link bg-primary text-tertiary" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link bg-primary text-tertiary" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link bg-primary text-tertiary" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link bg-primary text-tertiary" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Add Modal-->
+<div
+  class="modal fade"
+  id="addModal"
+  tabindex="-1"
+  aria-labelledby="addModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="/admin/product-management?_method=PUT" method="POST">
+          <input type="text" id="id" name="id" required />
+          <div>
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" />
+          </div>
+
+          <div>
+            <label for="type">Type:</label>
+            <input type="text" name="type" id="type" />
+          </div>
+
+          <div>
+            <label for="cost">Cost:</label>
+            <input type="number" name="cost" id="cost" step="0.01" min="0" />
+          </div>
+
+          <div>
+            <label for="description">Description:</label>
+            <input type="text" name="description" id="description" />
+          </div>
+
+          <div>
+            <label for="stock">Stock:</label>
+            <input type="number" name="stock" id="stock" />
+          </div>
+
+          <input type="submit" />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Delete Modal-->
+<div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  aria-labelledby="deleteModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Are you sure you want to delete?
+         <form action="/admin/product-management?_method=DELETE" method="POST">
+          <input type="type" id="delete" name="id" required />
+          <button type="submit" class="btn btn-primary">Yes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </form>
+      </div>
+
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/script/getButton.js"></script>
