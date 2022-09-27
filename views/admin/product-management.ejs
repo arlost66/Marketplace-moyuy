@@ -140,7 +140,7 @@
       <h5>Searchbar</h5>
       <button
         class="btn btn-primary position-absolute text-tertiary end-0 mx-4"
-      >
+        data-bs-toggle="modal" data-bs-target="#addModal">
         Add
       </button>
     </div>
@@ -223,20 +223,46 @@
 
 
 <!--Add  Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="addModalLabel">Modal title</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
+        ...<form action="/admin/product-management" method="post">
+          <div>
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" required />
+          </div>
+        
+          <div>
+            <label for="type">Type:</label>
+            <input type="text" name="type" id="type" required />
+          </div>
+        
+          <div>
+            <label for="cost">Cost:</label>
+            <input type="number" name="cost" id="cost" step="0.01" min="0" required />
+          </div>
+        
+          <div>
+            <label for="description">Description:</label>
+            <input type="text" name="description" id="description" required />
+          </div>
+        
+          <div>
+            <label for="stock">Stock:</label>
+            <input type="number" name="stock" id="stock" required />
+          </div>
+          <div>
+            </div>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
+        </form>
+      
     </div>
   </div>
 </div>
