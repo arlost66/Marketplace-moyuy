@@ -7,6 +7,7 @@ const { adminHomepage,
 
 
     getCustomerManagement,
+    editCustomerManagement,
 
     getProductManagement,
     addProductManagement,
@@ -28,8 +29,8 @@ adminRouter.route('/')//homepage sa admin
 
 adminRouter.route('/customer-management')
     .get(checkAuthenticated, isAdmin, getCustomerManagement)
-//  .post(checkAuthenticated, isAdmin, addCustomerManagement)
-// .put(checkAuthenticated, isAdmin, editCustomerManagement)
+    //  .post(checkAuthenticated, isAdmin, addCustomerManagement)
+    .put(checkAuthenticated, isAdmin, editCustomerManagement)
 // .delete(checkAuthenticated, isAdmin, deleteCustomerManagement)
 
 //product management routers

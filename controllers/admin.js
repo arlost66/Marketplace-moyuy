@@ -39,6 +39,30 @@ async function getCustomerManagement(req, res) {
         throw error;
     }
 }
+async function editCustomerManagement(req, res) {
+    try {
+        const original = await prisma2.users.findUnique({
+            where: {
+                id: parseInt(req.body.id)
+            },
+        })
+        const data = await prisma2.users.update({
+            where: {
+                id: parseInt(req.body.id)
+            },
+            data: {
+                name: req.body.name || original.name,
+                email: req.body.email || original.email,
+
+            },
+        });
+        res.redirect('/admin/customer-management');
+    } catch (error) {
+        throw error;
+    }
+}
+
+
 
 
 
@@ -123,8 +147,10 @@ async function deleteProductManagement(req, res) {
 module.exports = {
     adminHomepage,
     isAdmin,
-    getProductManagement,
     getCustomerManagement,
+    editCustomerManagement,
+
+    getProductManagement,
     addProductManagement,
     editProductManagement,
     deleteProductManagement

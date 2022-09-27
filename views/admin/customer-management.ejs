@@ -1,10 +1,10 @@
 <h2>Customer management Page</h2>
 
-<!--'data' kay ang variable for all User sa database-->
+<!--'data' kay ang variable for all User sa database
 <% if(data.length >0) %> <% data.forEach(element => { %>
 <div><%=element.name %></div>
 <div><%=element.email %></div>
-<% }) %>
+<% }) %> -->
 
 <div class="content d-md-flex flex-row">
   <!--Sidebar-->
@@ -34,7 +34,7 @@
           </a>
         </li>
         <li class="nav-item my-1">
-          <a href="#" class="nav-link text-text fs-4">
+          <a href="/admin/customer-management" class="nav-link text-text fs-4">
             <i class="bi bi-person me-2"></i>
             Customers
           </a>
@@ -46,7 +46,7 @@
           </a>
         </li>
         <li class="nav-item my-1">
-          <a href="#" class="nav-link text-text fs-4">
+          <a href="/admin/product-management" class="nav-link text-text fs-4">
             <i class="bi bi-cart4 me-2"></i>
             Products
           </a>
@@ -144,7 +144,14 @@
               <td><%=element.name %></td>
               <td><%=element.email %></td>
               <td>
-                <button class="id" value="<%=element.id%>">Edit</button>
+                <button
+                  class="id"
+                  value="<%=element.id%>"
+                  data-bs-toggle="modal"
+                  data-bs-target="#editModal"
+                >
+                  Edit
+                </button>
               </td>
               <!--Button for for editting this data and should be linked to MODAL-->
             </tr>
@@ -176,3 +183,51 @@
     </div>
   </div>
 </div>
+
+<!-- Edit Modal -->
+<div
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  aria-labelledby="editModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        ...
+        <form action="/admin/customer-management?_method=PUT" method="POST">
+          <input type="text" id="id" name="id" required />
+          <div>
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" />
+          </div>
+
+          <div>
+            <label for="email">Email:</label>
+
+            <input type="email" id="email" name="email" />
+          </div>
+
+          <input type="submit" />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/script/getButton.js"></script>
