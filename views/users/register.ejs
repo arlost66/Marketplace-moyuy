@@ -2,7 +2,7 @@
   class="container-fluid d-flex flex-column position-relative bg-primary opacity-75 vh-100"
 >
   <div
-    class="card d-flex flex-row align-content-center justify-content-center position-absolute shadow-lg rounded-4 bg-light overflow-hidden top-50 start-50 translate-middle h-50 w-25"
+    class="card d-flex flex-row align-content-center justify-content-center position-absolute shadow-lg rounded-4 bg-light overflow-hidden top-50 start-50 translate-middle"
   >
     <div
       class="card-body position-relative align-content-center justify-content-center"
@@ -16,50 +16,52 @@
       <div class="container">
         <form class="d-flex flex-column" action="/register" method="post">
           <div>
-            <label
-              for="nameInput"
-              class="form-label mb-lg-2 mt-lg-4 mb-md-0 mt-md-1"
-              >Name:</label
-            >
-            <input
-              type="text"
-              name="name"
-              id="nameInput"
-              class="form-control border-primary"
-              required
-            />
-          </div>
+            <div>
+              <label
+                for="nameInput"
+                class="form-label mb-lg-2 mt-lg-4 mb-md-0 mt-md-1"
+                >Name:</label
+              >
+              <input
+                type="text"
+                name="name"
+                id="nameInput"
+                class="form-control border-primary"
+                required
+              />
+            </div>
 
-          <div>
-            <label
-              for="emailInput"
-              class="form-label mb-2 mt-4 mb-md-0 mt-md-1"
-            >
-              <!--Need error message if email is already taken-->
-              Email:</label
-            >
-            <input
-              class="form-control border border-primary"
-              type="email"
-              name="email"
-              id="emailInput"
-              required
-            />
-          </div>
+            <div>
+              <label
+                for="emailInput"
+                class="form-label mb-2 mt-4 mb-md-0 mt-md-1"
+              >
+                <!--Need error message if email is already taken-->
+                Email:</label
+              >
+              <input
+                class="form-control border border-primary"
+                type="email"
+                name="email"
+                id="emailInput"
+                required
+              />
+            </div>
 
-          <div>
-            <label
-              for="passwordInput"
-              class="form-label mb-2 mt-4 mb-md-0 mt-md-1"
-              >Password:</label
-            >
-            <input
-              class="form-control border-primary"
-              type="password"
-              name="password"
-              id="passwordInput"
-              required
-            />
+            <div>
+              <label
+                for="passwordInput"
+                class="form-label mb-2 mt-4 mb-md-0 mt-md-1"
+                >Password:</label
+              >
+              <input
+                class="form-control border-primary"
+                type="password"
+                name="password"
+                id="passwordInput"
+                required
+              />
+            </div>
           </div>
 
           <button

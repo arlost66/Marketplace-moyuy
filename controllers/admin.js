@@ -25,15 +25,6 @@ async function isAdmin(req, res, next) {
     }
 
 }
-
-async function getProductManagement(req, res) {
-
-
-
-
-    res.render('admin/product-management');
-}
-
 async function getCustomerManagement(req, res) {
 
     //query all users by email alphabetically
@@ -51,6 +42,81 @@ async function getCustomerManagement(req, res) {
 
 
 
+async function getProductManagement(req, res) {
+
+    try {
+        const data = await prisma2.products.findMany({
+            orderBy: {
+                id: 'asc'
+            }
+        });
+        res.render('admin/product-management', { title: "Product Data", data });
+
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+
+async function addProductManagement(req, res) {
+    try {
+        const data = await prisma2.products.create({
+
+            data: {
+                name: req.body.name,
+                type: req.body.type,
+                cost: parseFloat(req.body.cost),
+                description: req.body.description,
+                stock: parseInt(req.body.stock),
+            },
+        });
+        res.redirect('/admin/product-management');
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+async function editProductManagement(req, res) {
+    try {
+        const original = await prisma2.products.findUnique({
+            where: {
+                id: parseInt(req.body.id)
+            },
+        })
+        const data = await prisma2.products.update({
+            where: {
+                id: parseInt(req.body.id)
+            },
+            data: {
+                name: req.body.name || original.name,
+                type: req.body.type || original.type,
+                cost: parseFloat(req.body.cost) || original.cost,
+                description: req.body.description || original.description,
+                stock: parseInt(req.body.stock) || original.parseInt,
+
+            },
+        });
+        res.redirect('/admin/product-management');
+    } catch (error) {
+        throw error;
+    }
+}
+
+async function deleteProductManagement(req, res) {
+    try {
+        console.log(req.body.id);
+        const data = await prisma2.products.delete({
+            where: {
+                id: parseInt(req.body.id)
+            },
+        })
+        res.redirect('/admin/product-management');
+    } catch (error) {
+        throw error;
+    }
+}
 
 
 
@@ -58,5 +124,8 @@ module.exports = {
     adminHomepage,
     isAdmin,
     getProductManagement,
-    getCustomerManagement
+    getCustomerManagement,
+    addProductManagement,
+    editProductManagement,
+    deleteProductManagement
 }
