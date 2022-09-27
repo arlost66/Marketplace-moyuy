@@ -4,11 +4,18 @@ const adminRouter = express.Router();
 
 const { adminHomepage,
     isAdmin,
+
+
+    getCustomerManagement,
+
     getProductManagement,
-    getCustomerManagement
+    addProductManagement,
+    editProductManagement,
+    deleteProductManagement
 } = require('../controllers/admin');
 
-const { checkAuthenticated
+const { checkAuthenticated,
+    checkNotAuthenticated
 } = require('../controllers/users');
 
 
@@ -20,11 +27,18 @@ adminRouter.route('/')//homepage sa admin
 
 
 adminRouter.route('/customer-management')
-    .get(checkAuthenticated, isAdmin, getCustomerManagement);
+    .get(checkAuthenticated, isAdmin, getCustomerManagement)
+//  .post(checkAuthenticated, isAdmin, addCustomerManagement)
+// .put(checkAuthenticated, isAdmin, editCustomerManagement)
+// .delete(checkAuthenticated, isAdmin, deleteCustomerManagement)
 
-
+//product management routers
 adminRouter.route('/product-management')
-    .get(checkAuthenticated, isAdmin, getProductManagement);
+    .get(checkAuthenticated, isAdmin, getProductManagement)
+    .post(checkAuthenticated, isAdmin, addProductManagement)
+    .put(checkAuthenticated, isAdmin, editProductManagement)
+    .delete(checkAuthenticated, isAdmin, deleteProductManagement)
+
 
 
 /*adminRouter.route('/stock-management')
