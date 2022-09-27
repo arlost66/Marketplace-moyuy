@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon -e ejs server.js"
+    "dev": "nodemon -e ejs server.js prisma migrate deploy && prisma generate "
   },
   "repository": {
     "type": "git",
