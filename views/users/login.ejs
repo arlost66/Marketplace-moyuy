@@ -1,7 +1,7 @@
 <div class="content d-md-flex flex-row-reverse vh-100">
   <!--Login Bar-->
   <div
-    class="login d-flex align-items-start justify-content-center flex-column flex-shrink-0 p-5 bg-white shadow h-100"
+    class="login d-flex align-items-start justify-content-center flex-column flex-shrink-0 p-5 bg-white shadow"
     style="width: 37%"
   >
     <h1 class="text-primary display-2 fw-semibold">Sign In</h1>
@@ -9,7 +9,7 @@
       <form class="d-flex flex-column" action="/login" method="post">
         <div class="mt-4 mb-1 shadow">
           <% if(messages.error){ %> <%= messages.error%> <% }%>
-          <label for="emailInput" class="form-label mb-0">Email address</label>
+          <label for="emailInput" class="form-label my-0 py-1">Email address</label>
           <input
             type="email"
             class="form-control"
@@ -20,7 +20,7 @@
           />
         </div>
         <div class="mt-0 shadow">
-          <label for="passwordInput" class="form-label mb-0">Password</label>
+          <label for="passwordInput" class="form-label mb-0 py-1">Password</label>
           <input
             type="password"
             class="form-control"
@@ -36,7 +36,6 @@
 
         <button
           class="btn btn-primary m-2 align-self-center shadow"
-          style="width: 20%"
           id="loginBtn"
         >
           LOGIN
