@@ -29,193 +29,150 @@
   <div>
     <input type="submit" />
 </form> -->
-<div class="content d-md-flex flex-row">
-  <!--Sidebar-->
-  <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-primary shadow">
-    <!--Logo-->
-    <a
-      href=""
-      class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
-    >
-      <img
-        class="rounded-circle h-75 m-2"
-        src="../../public/img/lao-logo.png"
-        alt="lao"
-      />
-      <h3 class="text-text">Betamoyuy</h3>
-    </a>
-    <hr class="border border-top-5 border-text opacity-100" />
-    <!--Navigation-->
-    <div class="container mb-auto">
-      <ul
-        class="nav nav-pills flex-column mb-auto list-unstyled nav-hover py-2"
-      >
-        <li class="nav-item justify-content-center my-1">
-          <a href="#" class="nav-link text-text fs-4" aria-disabled="true">
-            <i class="bi bi-house-door me-2"></i>
-            Home
-          </a>
-        </li>
-        <li class="nav-item my-1">
-          <a href="/admin/customer-management" class="nav-link text-text fs-4">
-            <i class="bi bi-person me-2"></i>
-            Customers
-          </a>
-        </li>
-        <li class="nav-item my-1">
-          <a href="/admin/product-management" class="nav-link text-text fs-4">
-            <i class="bi bi-cart-dash me-2"></i>
-            Orders
-          </a>
-        </li>
-        <li class="nav-item my-1">
-          <a href="#" class="nav-link text-text fs-4">
-            <i class="bi bi-cart4 me-2"></i>
-            Products
-          </a>
-        </li>
-        <li class="nav-item my-1">
-          <a href="#" class="nav-link text-text fs-4">
-            <i class="bi bi-card-checklist me-2"></i>
-            Stocks
-          </a>
-        </li>
-      </ul>
-    </div>
-    <hr class="border border-top-5 border-tertiary opacity-100" />
-    <!--User-->
-    <div class="dropdown just px-4">
-      <a
-        href="#"
-        class="d-flex align-items-center text-text text-decoration-none dropdown-toggle"
-        id="dropdown1"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        <img
-          src="../../public/img/profile-pic.svg"
-          alt=""
-          width="40px"
-          height="40px"
-          class="rounded-circle me-2"
-        />
-        <h3 class="mx-1 text-primary-text">Admin1</h3>
-      </a>
-      <ul
-        class="dropdown-menu dropdown-menu-light text-small shadow"
-        aria-labelledby="dropdown1"
-      >
-        <li>
-          <a href="#" class="dropdown-item"> Edit Profile </a>
-        </li>
-        <li>
-          <a href="#" class="dropdown-item"> Settings </a>
-        </li>
-        <li>
-          <hr class="dropdown-divider" />
-        </li>
-        <li>
-          <a href="#" class="dropdown-item"> Sign out </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!--Content-->
-  <!-- <main>%- body</main>-->
-  <div
-    class="container-fluid pt-5 d-flex flex-column justify-content-start bg-back"
-  >
-    <div class="container text-tertiary">
-      <h1>Template</h1>
-      <p class="mb-4">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
-        possimus optio ab impedit neque reprehenderit.
-      </p>
-      <hr class="border border-top-5 border-tertiary opacity-100" />
-    </div>
-    <div class="container text-tertiary d-flex flex-row my-4 position-relative">
-      <h5>Sort</h5>
-      <h5>Filter</h5>
-      <h5>Sort</h5>
-      <h5>Searchbar</h5>
-      <button
-        class="btn btn-primary position-absolute text-tertiary end-0 mx-4"
-        data-bs-toggle="modal" data-bs-target="#addModal">
-        Add
-      </button>
-    </div>
-    <div class="container">
-      <div class="container-fluid">
-        <table class="table bg-secondary text-tertiary">
-          <thead>
-            <tr>
-              <th scope="col">Col 1</th>
-              <th scope="col">Col 2</th>
-              <th scope="col">Col 3</th>
-              <th scope="col">Col 4</th>
-            </tr>
-          </thead>
-          <tbody class="table-group-divider">
-            <tr>
-              <th scope="row">1</th>
-              <td>Test 1</td>
-              <td>Test 2</td>
-              <td>Test 3</td>
-            </tr>
-            <% if(data.length >0) %> <% data.forEach(element => { %>
-            <tr>
-              <td><%=element.name %></td>
-              <td><%=element.type %></td>
-              <td><%=element.cost %></td>
-              <td><%=element.stock %></td>
 
-              <td>
-                <button
-                  class="id"
-                  value="<%=element.id%>"
-                  data-bs-toggle="modal"
-                  data-bs-target="#editModal"
-                >
-                  Edit
-                </button>
-
-                <button
-                  class="delete"
-                  value="<%= element.id%>"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteModal"
-                >
-                  Delete
-                </button>
-              </td>
-              <!--Button for for editting this data and should be linked to MODAL-->
-            </tr>
-            <% }) %>
-          </tbody>
-        </table>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-end">
-            <li class="page-item">
-              <a class="page-link bg-primary text-tertiary" href="/"
-                >Previous</a
-              >
-            </li>
-            <li class="page-item">
-              <a class="page-link bg-primary text-tertiary" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link bg-primary text-tertiary" href="#">2</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link bg-primary text-tertiary" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link bg-primary text-tertiary" href="#">Next</a>
-            </li>
-          </ul>
-        </nav>
+<div class="container-fluid overflow-hidden">
+  <div class="row vh-100 overflow-auto">
+      <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top">
+          <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white">
+              <a href="/" class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                  <span class="h3">B<span class="d-none d-sm-inline">eta</span></span>
+                  <span class="h3">M<span class="d-none d-sm-inline">arket</span></span>
+               </a>
+              <hr class="border-top-5 border-text opacity-sm-100" />
+              <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start" id="menu">
+                  <li class="nav-item">
+                      <a href="#" class="nav-link px-sm-0 px-2 text-white">
+                          <i class="fs-5 bi-house-door"></i><span class="ms-1 d-none d-sm-inline">Home</span>
+                      </a>
+                  </li>
+                  
+                  <li>
+                      <a href="/admin/product-management" class="nav-link px-sm-0 px-2 text-white">
+                          <i class="fs-5 bi-cart4"></i><span class="ms-1 d-none d-sm-inline">Products</span></a>
+                  </li>
+                  <li>
+                      <a href="/admin/customer-management" class="nav-link px-sm-0 px-2 text-white">
+                          <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">Customers</span> </a>
+                  </li>
+                  <li>
+                      <a href="#" class="nav-link px-sm-0 px-2 text-white">
+                          <i class="fs-5 bi-cart-dash"></i><span class="ms-1 d-none d-sm-inline">Order</span> </a>
+                  </li>
+                  
+              </ul>
+              <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
+                  <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="/img/profile-pic.svg" width="28" height="28" class="rounded-circle">
+                      <span class="d-none d-sm-inline mx-1">User</span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                      <li><a class="dropdown-item" href="#">Settings</a></li>
+                      <li><a class="dropdown-item" href="#">Profile</a></li>
+                      <li>
+                          <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="#">Sign out</a></li>
+                  </ul>
+              </div>
+          </div>
       </div>
-    </div>
+      <!--CONTENT-->
+      <div class="col d-flex flex-column h-sm-100">
+          <main class="row overflow-auto">
+              <div class="col pt-4">
+                  <h1>Template</h1>
+                  <p class="mb-4">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
+                    possimus optio ab impedit neque reprehenderit.
+                  </p>
+                  <hr class="border border-top-5 border-dark opacity-100" />
+                  <div class="container text-tertiary d-flex flex-row my-4 position-relative">
+                    <h5>Sort</h5>
+                    <h5>Filter</h5>
+                    <h5>Sort</h5>
+                    <h5>Searchbar</h5>
+                    <button class="btn btn-dark position-absolute text-white end-0 mx-1 me-3 w-auto" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#addModal">
+                      <i class="bi-plus-circle d-md-none d-inline mx-1 pb-2"></i>
+                      <span class="ms-1 d-none d-sm-inline">Add</span>
+                    </button>
+                  </div>
+                  <div class="container-fluid">
+                    <table class="table bg-secondary text-tertiary">
+                      <thead>
+                        <tr>
+                          <th scope="col">Col 1</th>
+                          <th scope="col">Col 2</th>
+                          <th scope="col">Col 3</th>
+                          <th scope="col">Col 4</th>
+                        </tr>
+                      </thead>
+                      <tbody class="table-group-divider">
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Test 1</td>
+                          <td>Test 2</td>
+                          <td>Test 3</td>
+                        </tr>
+                        <% if(data.length >0) %> <% data.forEach(element => { %>
+                        <tr>
+                          <td><%=element.name %></td>
+                          <td><%=element.type %></td>
+                          <td><%=element.cost %></td>
+                          <td><%=element.stock %></td>
+              
+                          <td>
+                            <button
+                              class="id"
+                              value="<%=element.id%>"
+                              data-bs-toggle="modal"
+                              data-bs-target="#editModal"
+                            >
+                              Edit
+                            </button>
+              
+                            <button
+                              class="delete"
+                              value="<%= element.id%>"
+                              data-bs-toggle="modal"
+                              data-bs-target="#deleteModal"
+                            >
+                              Delete
+                            </button>
+                          </td>
+                          <!--Button for for editting this data and should be linked to MODAL-->
+                        </tr>
+                        <% }) %>
+                      </tbody>
+                    </table>
+                    <nav aria-label="Page navigation example">
+                      <ul class="pagination justify-content-end">
+                        <li class="page-item">
+                          <a class="page-link bg-dark text-white" href="#"
+                            >Previous</a
+                          >
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link bg-dark text-white" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link bg-dark text-white" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link bg-dark text-white" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link bg-dark text-white" href="#">Next</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus sunt dicta perferendis? Cumque unde quibusdam voluptatum sequi nobis, architecto ab voluptates. Veritatis suscipit beatae quam asperiores reprehenderit laborum in, error architecto placeat nam repellendus labore rerum quidem maiores. Quidem debitis fuga voluptatibus omnis facere odit animi aliquid assumenda?</p>
+                  
+              </div>
+          </main>
+      </div>
   </div>
 </div>
 
@@ -223,116 +180,119 @@
 
 
 <!--Add  Modal -->
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="addModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-header px-auto bg-dark">
+        <h5 class="modal-title text-white mx-auto" id="addModalLabel">Add Product</h5>
       </div>
       <div class="modal-body">
-        ...<form action="/admin/product-management" method="post">
-          <div>
-            <label for="name">Name: </label>
-            <input type="text" id="name" name="name" required />
-          </div>
-        
-          <div>
-            <label for="type">Type:</label>
-            <input type="text" name="type" id="type" required />
-          </div>
-        
-          <div>
-            <label for="cost">Cost:</label>
-            <input type="number" name="cost" id="cost" step="0.01" min="0" required />
-          </div>
-        
-          <div>
-            <label for="description">Description:</label>
-            <input type="text" name="description" id="description" required />
-          </div>
-        
-          <div>
-            <label for="stock">Stock:</label>
-            <input type="number" name="stock" id="stock" required />
-          </div>
-          <div>
+        <form action="/admin/product-management" method="POST">
+          <!--ROW FOR NAME AND TYPE-->
+          <div class="row justify-content-center mb-md-1">
+            <div class="col-10 col-md-5 m-2">
+              <label class="mb-md-2 me-2" for="name">Name: </label>
+              <input type="text" id="name" name="name" required="">
             </div>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
-        </form>
+            <div class="col-10 col-md-5 m-2">
+              <label class="mb-md-2 me-2" for="type">Type: </label>
+              <input class="ms-sm-1" type="text" id="type" name="type" required="">
+            </div>
+          </div>
+          <!--ROW FOR COST AND PRICE-->
+          <div class="row justify-content-center mb-md-3">
+            <div class="col-10 col-md-5 m-2">
+              <label class="mb-md-2 me-2" for="cost">Cost:</label>
+              <input type="number" name="cost" id="cost" step="0.01" min="0" required="">
+            </div>
+            <div class="col-10 col-md-5 m-2">
+              <label class="mb-md-2 me-2" for="stock">Stock:</label>
+              <input class="ms-sm-1" type="number" name="stock" id="stock" min="0" required="">
+            </div>
+          </div>
+          <!--ROW FOR DESCRIPTION-->
+          <div class="row align-items-center justify-content-center mb-3">
+            <div class="col-4">
+              <label class="mb-md-2 me-sm-2" for="description">Description:</label>
+            </div>
+            <div class="col-6 px-1 px-md-5">
+              <textarea type="message-text" name="description" id="description" row="1" cols="25" required=""></textarea>
+            </div>
+          </div>
+          <!--MODAL FOOTER-->
+          <div class="row justify-content-center px-1">
+            <div class="col-3">
+              <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Close</button>
+            </div>
+            <div class="col-3">
+              <button type="submit" class="btn btn-dark px-4">Save</button>
+            </div>
+          </div>
+      </form>
       
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!--Edit Modal-->
 <div
   class="modal fade"
   id="editModal"
-  tabindex="-1"
+  tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
   aria-labelledby="editModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editModalLabel">Modal title</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+      <div class="modal-header px-auto bg-dark">
+        <h5 class="modal-title text-white mx-auto" id="editModalLabel">Edit Product</h5>
       </div>
       <div class="modal-body">
         <form action="/admin/product-management?_method=PUT" method="POST">
-          <input type="text" id="id" name="id" required />
-          <div>
-            <label for="name">Name: </label>
-            <input type="text" id="name" name="name" />
+          <input type="hidden" id="id" name="id" required />
+          <!--ROW FOR NAME AND TYPE-->
+          <div class="row justify-content-center mb-md-1">
+            <div class="col-10 col-md-5 m-2">
+              <label class="mb-md-2 me-2" for="name">Name: </label>
+              <input type="text" id="name" name="name" />
+            </div>
+            <div class="col-10 col-md-5 m-2">
+              <label class="mb-md-2 me-2" for="type">Type: </label>
+              <input type="text" name="type" id="type" />
+            </div>
           </div>
-
-          <div>
-            <label for="type">Type:</label>
-            <input type="text" name="type" id="type" />
+          <!--ROW FOR STOCK AND COST-->
+          <div class="row justify-content-center mb-md-1">
+            <div class="col-10 col-md-5 m-2">
+              <label class="mb-md-2 me-2" for="cost">Cost:</label>
+              <input type="number" name="cost" id="cost" step="0.01" min="0" />
+            </div>
+            <div class="col-10 col-md-5 m-2">
+              <label class="mb-md-2 me-2" for="stock">Stock:</label>
+              <input class="ms-sm-1" type="number" name="stock" id="stock" min="0" required="">
+            </div>
           </div>
-
-          <div>
-            <label for="cost">Cost:</label>
-            <input type="number" name="cost" id="cost" step="0.01" min="0" />
+          <!--ROW FOR DESCRIPTION-->
+          <div class="row align-items-center justify-content-center mb-3">
+            <div class="col-4">
+              <label class="mb-md-2 me-sm-2" for="description">Description:</label>
+            </div>
+            <div class="col-6 px-1 px-md-5">
+              <textarea type="message-text" name="description" id="description" row="1" cols="25" required=""></textarea>
+            </div>
           </div>
-
-          <div>
-            <label for="description">Description:</label>
-            <input type="text" name="description" id="description" />
+          <!--Modal Footer-->
+          <div class="row justify-content-center px-1">
+            <div class="col-3">
+              <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Close</button>
+            </div>
+            <div class="col-3">
+              <button type="submit" class="btn btn-dark px-4">Save</button>
+            </div>
           </div>
-
-          <div>
-            <label for="stock">Stock:</label>
-            <input type="number" name="stock" id="stock" />
-          </div>
-
-          <input type="submit" />
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
       </div>
     </div>
   </div>
@@ -346,31 +306,30 @@
   aria-labelledby="deleteModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+      <div class="modal-header px-auto bg-dark">
+        <h5 class="modal-title text-white mx-auto" id="deleteModalLabel">Delete Product</h5>
       </div>
-      <div class="modal-body">Are you sure you want to delete?
+      <div class="modal-body">
          <form action="/admin/product-management?_method=DELETE" method="POST">
-          <input type="type" id="delete" name="id" required />
-          <button type="submit" class="btn btn-primary">Yes</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-      </form>
+          <div class="row justify-content-center px-1">
+            <p class="text-center">Confirm delete?</p>
+            <input type="hidden" id="delete" name="id" required />
+            <div class="col-3">
+              <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Close</button>
+            </div>
+            <div class="col-3">
+              <button type="submit" class="btn btn-dark px-4">Yes</button>
+            </div>
+          </div>
+        </form>
       </div>
 
-       
       </div>
     </div>
-  </div>
 </div>
+
+
 
 <script src="/script/getButton.js"></script>
