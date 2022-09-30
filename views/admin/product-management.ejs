@@ -149,7 +149,7 @@
                     <nav aria-label="Page navigation example">
                       <ul class="pagination justify-content-end">
                         <li class="page-item">
-                          <a class="page-link bg-dark text-white" href="/"
+                          <a class="page-link bg-dark text-white" href="#"
                             >Previous</a
                           >
                         </li>
@@ -179,7 +179,6 @@
 
 
 
-<!-- Edit modal (DONE!)-->
 <!--Add  Modal -->
 <div class="modal fade" id="addModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="addModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -188,7 +187,8 @@
         <h5 class="modal-title text-white mx-auto" id="addModalLabel">Add Product</h5>
       </div>
       <div class="modal-body">
-        <form action="/admin/product-management" method="post">
+        <form action="/admin/product-management" method="POST">
+          <!--ROW FOR NAME AND TYPE-->
           <div class="row justify-content-center mb-md-1">
             <div class="col-10 col-md-5 m-2">
               <label class="mb-md-2 me-2" for="name">Name: </label>
@@ -199,6 +199,7 @@
               <input class="ms-sm-1" type="text" id="type" name="type" required="">
             </div>
           </div>
+          <!--ROW FOR COST AND PRICE-->
           <div class="row justify-content-center mb-md-3">
             <div class="col-10 col-md-5 m-2">
               <label class="mb-md-2 me-2" for="cost">Cost:</label>
@@ -209,6 +210,7 @@
               <input class="ms-sm-1" type="number" name="stock" id="stock" min="0" required="">
             </div>
           </div>
+          <!--ROW FOR DESCRIPTION-->
           <div class="row align-items-center justify-content-center mb-3">
             <div class="col-4">
               <label class="mb-md-2 me-sm-2" for="description">Description:</label>
@@ -217,6 +219,7 @@
               <textarea type="message-text" name="description" id="description" row="1" cols="25" required=""></textarea>
             </div>
           </div>
+          <!--MODAL FOOTER-->
           <div class="row justify-content-center px-1">
             <div class="col-3">
               <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Close</button>
@@ -227,76 +230,69 @@
           </div>
       </form>
       
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!--Edit Modal-->
 <div
   class="modal fade"
   id="editModal"
-  tabindex="-1"
+  tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
   aria-labelledby="editModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editModalLabel">Modal title</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+      <div class="modal-header px-auto bg-dark">
+        <h5 class="modal-title text-white mx-auto" id="editModalLabel">Edit Product</h5>
       </div>
       <div class="modal-body">
         <form action="/admin/product-management?_method=PUT" method="POST">
-          <input type="text" id="id" name="id" required />
-          <div>
-            <label for="name">Name: </label>
-            <input type="text" id="name" name="name" />
+          <input type="hidden" id="id" name="id" required />
+          <!--ROW FOR NAME AND TYPE-->
+          <div class="row justify-content-center mb-md-1">
+            <div class="col-10 col-md-5 m-2">
+              <label class="mb-md-2 me-2" for="name">Name: </label>
+              <input type="text" id="name" name="name" />
+            </div>
+            <div class="col-10 col-md-5 m-2">
+              <label class="mb-md-2 me-2" for="type">Type: </label>
+              <input type="text" name="type" id="type" />
+            </div>
           </div>
-
-          <div>
-            <label for="type">Type:</label>
-            <input type="text" name="type" id="type" />
+          <!--ROW FOR STOCK AND COST-->
+          <div class="row justify-content-center mb-md-1">
+            <div class="col-10 col-md-5 m-2">
+              <label class="mb-md-2 me-2" for="cost">Cost:</label>
+              <input type="number" name="cost" id="cost" step="0.01" min="0" />
+            </div>
+            <div class="col-10 col-md-5 m-2">
+              <label class="mb-md-2 me-2" for="stock">Stock:</label>
+              <input class="ms-sm-1" type="number" name="stock" id="stock" min="0" required="">
+            </div>
           </div>
-
-          <div>
-            <label for="cost">Cost:</label>
-            <input type="number" name="cost" id="cost" step="0.01" min="0" />
+          <!--ROW FOR DESCRIPTION-->
+          <div class="row align-items-center justify-content-center mb-3">
+            <div class="col-4">
+              <label class="mb-md-2 me-sm-2" for="description">Description:</label>
+            </div>
+            <div class="col-6 px-1 px-md-5">
+              <textarea type="message-text" name="description" id="description" row="1" cols="25" required=""></textarea>
+            </div>
           </div>
-
-          <div>
-            <label for="description">Description:</label>
-            <input type="text" name="description" id="description" />
+          <!--Modal Footer-->
+          <div class="row justify-content-center px-1">
+            <div class="col-3">
+              <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Close</button>
+            </div>
+            <div class="col-3">
+              <button type="submit" class="btn btn-dark px-4">Save</button>
+            </div>
           </div>
-
-          <div>
-            <label for="stock">Stock:</label>
-            <input type="number" name="stock" id="stock" />
-          </div>
-
-          <input type="submit" />
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
       </div>
     </div>
   </div>
@@ -310,31 +306,30 @@
   aria-labelledby="deleteModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+      <div class="modal-header px-auto bg-dark">
+        <h5 class="modal-title text-white mx-auto" id="deleteModalLabel">Delete Product</h5>
       </div>
-      <div class="modal-body">Are you sure you want to delete?
+      <div class="modal-body">
          <form action="/admin/product-management?_method=DELETE" method="POST">
-          <input type="type" id="delete" name="id" required />
-          <button type="submit" class="btn btn-primary">Yes</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-      </form>
+          <div class="row justify-content-center px-1">
+            <p class="text-center">Confirm delete?</p>
+            <input type="hidden" id="delete" name="id" required />
+            <div class="col-3">
+              <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Close</button>
+            </div>
+            <div class="col-3">
+              <button type="submit" class="btn btn-dark px-4">Yes</button>
+            </div>
+          </div>
+        </form>
       </div>
 
-       
       </div>
     </div>
-  </div>
 </div>
+
+
 
 <script src="/script/getButton.js"></script>
