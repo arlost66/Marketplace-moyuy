@@ -36,13 +36,13 @@ model orders {
 }
 
 model products {
-  id          Int    @id @default(autoincrement())
-  name        String @db.VarChar(255)
-  type        String @db.VarChar(255)
-  cost        Float  @db.Float
-  description String @db.Text
-  stock       Int    @db.Int
-
-  orders   orders? @relation(fields: [ordersId], references: [id])
-  ordersId Int?
+  id          Int     @id @default(autoincrement())
+  name        String  @db.VarChar(255)
+  type        String  @db.VarChar(255)
+  cost        Float   @db.Float
+  description String  @db.Text
+  stock       Int     @db.Int
+  photoUrl    String  @db.Text
+  orders      orders? @relation(fields: [ordersId], references: [id])
+  ordersId    Int?
 }

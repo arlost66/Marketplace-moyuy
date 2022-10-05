@@ -233,7 +233,11 @@
         </h5>
       </div>
       <div class="modal-body">
-        <form action="/admin/product-management" method="POST">
+        <form
+          action="/admin/product-management"
+          method="POST"
+          enctype="multipart/form-data"
+        >
           <!--ROW FOR NAME AND TYPE-->
           <div class="row justify-content-center mb-md-1">
             <div class="col-10 col-md-5 m-2">
@@ -292,6 +296,13 @@
                 cols="25"
               ></textarea>
             </div>
+          </div>
+          <div class="image">
+            <input
+              type="file"
+              name="image"
+              accept="image/png, image/jpeg, image/gif,image/jpg"
+            />
           </div>
           <!--MODAL FOOTER-->
           <div class="row justify-content-center px-1">
