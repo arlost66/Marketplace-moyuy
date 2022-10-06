@@ -44,7 +44,7 @@ adminRouter
     upload.single('image'),
     addProductManagement
   )
-  .put(checkAuthenticated, isAdmin, editProductManagement)
+  .put(checkAuthenticated, isAdmin, upload.single('image'), editProductManagement)
   .delete(checkAuthenticated, isAdmin, deleteProductManagement);
 
 /*adminRouter.route('/stock-management')

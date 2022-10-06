@@ -17,7 +17,7 @@ async function isAdmin(req, res, next) {
       return res.redirect('/');
     }
     next();
-  } catch (error) {}
+  } catch (error) { }
 }
 async function getCustomerManagement(req, res) {
   //query all users by email alphabetically
@@ -68,21 +68,22 @@ async function getProductManagement(req, res) {
 }
 
 async function addProductManagement(req, res) {
-  console.log(req.file);
-  // try {
-  //     const data = await prisma2.products.create({
-  //         data: {
-  //             name: req.body.name,
-  //             type: req.body.type,
-  //             cost: parseFloat(req.body.cost),
-  //             description: req.body.description,
-  //             stock: parseInt(req.body.stock),
-  //         },
-  //     });
-  //     res.redirect('/admin/product-management');
-  // } catch (error) {
-  //     throw error;
-  // }
+  //console.log(req.file);
+  try {
+    const data = await prisma2.products.create({
+      data: {
+        name: req.body.name,
+        type: req.body.type,
+        cost: parseFloat(req.body.cost),
+        description: req.body.description,
+        stock: parseInt(req.body.stock),
+        photoUrl: req.file.path
+      },
+    });
+    res.redirect('/admin/product-management');
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function editProductManagement(req, res) {
@@ -102,6 +103,7 @@ async function editProductManagement(req, res) {
         cost: parseFloat(req.body.cost) || original.cost,
         description: req.body.description || original.description,
         stock: parseInt(req.body.stock) || original.parseInt,
+        photoUrl: req.file.path
       },
     });
     res.redirect('/admin/product-management');
