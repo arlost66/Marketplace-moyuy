@@ -1,0 +1,14 @@
+<% if(data.length >0) %> <% data.forEach(element => { %>
+<div class="card" style="width: 18rem">
+  <img
+    class="card-img-top"
+    src="<%= element.photoUrl %>"
+    alt="Card image cap"
+  />
+  <div class="card-body">
+    <h5 class="card-title"><%=element.name%></h5>
+    <p class="card-text"><%=element.description%></p>
+    <a href="#" class="btn btn-primary">Product page</a>
+  </div>
+</div>
+<% }) %>

@@ -75,8 +75,20 @@ function getLogin(req, res) {
     })
 }*/
 
-function getShop(req, res) {
-    res.render('users/shop');
+async function getShop(req, res) {
+    try {
+        const data = await prisma.products.findMany({
+            orderBy: {
+                id: 'asc',
+            }
+        });
+        res.render('users/shop', { data });
+    } catch (error) {
+        throw error;
+    }
+
+
+
 }
 
 function logout(req, res, next) {
