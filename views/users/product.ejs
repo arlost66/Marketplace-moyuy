@@ -1,0 +1,9 @@
+<% if(datas){%>
+<img src="<%=datas.photoUrl%>" alt="<%=datas.name%>" />
+
+<h4>Description</h4>
+<%- datas.description %> <% } else {%>
+<h1>Product is not availabe</h1>
+<% } %>
+
+<a href="/shop">Back</a>

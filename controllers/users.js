@@ -83,13 +83,30 @@ async function getShop(req, res) {
             }
         });
         res.render('users/shop', { data });
+
     } catch (error) {
         throw error;
     }
-
-
-
 }
+//the solo product
+async function getProduct(req, res) {
+    const temp = parseInt(req.params.id)
+
+    try {
+        const datas = await prisma.products.findUnique({
+            where: {
+                id: temp,
+            }
+        });
+        res.render('users/product', { datas });
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+
+
 
 function logout(req, res, next) {
     req.logout((err) => {
@@ -127,6 +144,8 @@ module.exports = {
     checkAuthenticated,
     checkNotAuthenticated,
     getShop,
+
+    getProduct,
     logout,
 
 

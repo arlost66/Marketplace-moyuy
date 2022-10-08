@@ -1,4 +1,6 @@
-<% if(data.length >0) %> <% data.forEach(element => { %>
+<a href="/">Homepage</a>
+
+<% if(data.length >0){ %> <% data.forEach(element => { %>
 <div class="card" style="width: 18rem">
   <img
     class="card-img-top"
@@ -8,7 +10,9 @@
   <div class="card-body">
     <h5 class="card-title"><%=element.name%></h5>
     <p class="card-text"><%=element.description%></p>
-    <a href="#" class="btn btn-primary">Product page</a>
+    <a href="/shop/<%=element.id%>" class="btn btn-primary">Product page</a>
   </div>
 </div>
-<% }) %>
+<% })} else {%>
+<h1>No product availabe</h1>
+<%}%>

@@ -12,6 +12,7 @@ const {
     checkAuthenticated,
     checkNotAuthenticated,
     getShop,
+    getProduct,
     logout
 } = require('../controllers/users.js');
 
@@ -36,5 +37,7 @@ router.route('/logout') //LOGOUT BUTTON
 
 
 router.route('/shop').get(checkAuthenticated, getShop)
+
+router.route('/shop/:id').get(checkAuthenticated, getProduct)
 
 module.exports = router
