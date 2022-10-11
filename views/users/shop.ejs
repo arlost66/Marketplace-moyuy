@@ -1,6 +1,68 @@
+<%- include('../partials/header'); %>
 <a href="/">Homepage</a>
 
+
 <% if(data.length >0){ %> <% data.forEach(element => { %>
+<div class="container-fluid p-0" style="margin-top: 12vh;">
+  <!--HEADER SECTION-->
+  <div class=" container-fluid bg-dark py-5 border-2">
+    <div class="container-fluid px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Shop in Beta!</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, vero?</p>
+        </div>
+    </div>
+  </div>
+  <!--SHOP SECTION-->
+  <section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="<%= element.photoUrl %>" alt="...">
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder"><%=element.name%></h5>
+                            <!-- Product price-->
+                            <p>Cost:<%=element.cost%></p>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">
+                          View Product
+                        </button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <!--Product View Modal-->
+  <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="Product" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"><%=element.name%></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img class="card-img-top" src="<%= element.photoUrl %>" alt="...">
+          <h5 class="fw-bolder"><%=element.name%></h5>
+          <h5 class="fw-bolder"><%=element.type%></h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="card" style="width: 18rem">
   <img
     class="card-img-top"
@@ -14,5 +76,5 @@
   </div>
 </div>
 <% })} else {%>
-<h1>No product availabe</h1>
+<h1>No product available</h1>
 <%}%>
