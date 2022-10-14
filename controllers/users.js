@@ -52,7 +52,14 @@ async function postRegister(req, res) {
                 name: req.body.name,
                 email: req.body.email,
                 password: hashedPassword,
-                role: req.body.role
+                role: req.body.role,
+                cart: {
+                    create: [
+                        {
+                            total: 00,
+                        }
+                    ]
+                }
             },
         })
         res.redirect('/login')
@@ -95,14 +102,30 @@ async function getProduct(req, res) {
     const temp = parseInt(req.params.id)
 
     try {
-        const datas = await prisma.products.findUnique({
+        const data = await prisma.products.findUnique({
             where: {
                 id: temp,
             }
         });
-        res.render('users/product', { datas });
+        res.render('users/product', { data });
     } catch (error) {
         throw error;
+    }
+}
+
+async function getOrder(req, res) {
+    try {
+        const user = await req.user;
+        const data = await prisma.users.findUnique({
+            where: {
+                id: user.id,
+            },
+            data: {
+
+            }
+        })
+    } catch (error) {
+        throw error
     }
 }
 
