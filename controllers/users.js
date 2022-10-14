@@ -34,8 +34,9 @@ initializePassport(passport,
 const prisma = new PrismaClient();
 
 
-function userHomepage(req, res) {
-    res.render('users/homepage', { name: req.user.name });
+async function userHomepage(req, res) {
+    const user = await req.user
+    res.render('users/homepage', { name: user.name });
 }
 
 function getRegister(req, res) {
@@ -77,12 +78,13 @@ function getLogin(req, res) {
 
 async function getShop(req, res) {
     try {
+        const user = await req.user
         const data = await prisma.products.findMany({
             orderBy: {
                 id: 'asc',
             }
         });
-        res.render('users/shop', { data });
+        res.render('users/shop', { data, name: user.name });
 
     } catch (error) {
         throw error;

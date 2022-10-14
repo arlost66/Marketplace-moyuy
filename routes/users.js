@@ -33,6 +33,7 @@ router.route('/login')// CUSTOMER AND ADMIN LOGiN PAGE
     }));
 
 router.route('/logout') //LOGOUT BUTTON
+    .get(logout)
     .delete(logout);
 
 

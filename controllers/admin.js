@@ -56,12 +56,13 @@ async function editCustomerManagement(req, res) {
 
 async function getProductManagement(req, res) {
   try {
+    const name = await req.user
     const data = await prisma2.products.findMany({
       orderBy: {
         id: 'asc',
       },
     });
-    res.render('admin/product-management', { title: 'Product Data', data });
+    res.render('admin/product-management', { title: 'Product Data', data, name: name });
   } catch (error) {
     throw error;
   }
