@@ -1,11 +1,75 @@
 <h2>Landing page after login</h2>
 <!--form for logout-->
+
+<%- include('../partials/header'); %>
+<!--COVER Section-->
+<div class="container-fluid mt-5 p-0" style="margin-top: 10vh;">
+  <div id="carouselCover" class="carousel slide mt-5" data-bs-ride="true">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselCover" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselCover" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselCover" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/img/carousel-cover1.png" class="d-block w-100" alt="beta">
+        <div class="carousel-caption d-none d-md-block">
+          <h1>People's Beta Market</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, voluptas!</p>
+        </div>
+      </div>
+      <div class="carousel-item active">
+        <img src="/img/carousel-cover-2.png" class="d-block w-100" alt="topi">
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Fresh Beta Fruits!</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, quos!</p>
+        </div>
+      </div>
+      <div class="carousel-item active">
+        <img src="/img/carousel-cover-3.png" class="d-block w-100" alt="rex">
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Shop Now!</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, quos!</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselCover" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselCover" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<!--Util Section-->
+<div class="container-fluid text-center">
+  <div class="row position-relative align-content-center px-2">
+    <div class="col">
+      <img src="/img/home-photo-1.jpg" height="680px" width="490px" alt="">
+    </div>
+    <div class="col d-flex flex-column align-items-center m-5">
+      <h1 class="mt-auto">People's choice of Beta Products</h1>
+      <p class="mb-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi minima suscipit temporibus possimus, quis et dignissimos hic aut? Accusantium, voluptatem!</p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid text-center">
+  <div class="row position-relative align-content-center px-2">
+    <div class="col d-flex flex-column align-items-center m-5">
+      <h1 class="mt-auto">Experience the freshness of Betamoyuy!</h1>
+      <p class="mb-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi minima suscipit temporibus possimus, quis et dignissimos hic aut? Accusantium, voluptatem!</p>
+    </div>
+    <div class="col">
+      <img src="/img/home-photo-2.jpg" height="680px" width="490px" alt="">
+    </div>
+  </div>
+</div>
+<div class="container-fluid text-center bg-dark ">
+  <a class="btn btn-light m-5" href="#" role="button">Start Shopping!</a>
+</div>
+<!--INFORMAL LOGOUT-->
 <form action="/logout?_method=DELETE" method="POST">
   <button type="submit">Log out</button>
 </form>
-
-<a href="/admin/product-management">Admin page</a>
-
-<div>
-  <a href="/shop"> Shop</a>
-</div>
