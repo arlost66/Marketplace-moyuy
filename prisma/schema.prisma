@@ -35,20 +35,29 @@ model carts {
   total  Float  @db.Double
   status Status @default(ORDER)
 
-  product products[]
-
-  userId Int   @unique
-  user   users @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId         Int              @unique
+  user           users            @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productsOnCart productsOnCart[]
 }
 
 model products {
-  id          Int    @id @default(autoincrement())
-  name        String @db.VarChar(255)
-  type        String @db.VarChar(255)
-  cost        Float  @db.Float
-  description String @db.Text
-  stock       Int    @db.Int
-  photoUrl    String @db.Text
-  carts       carts? @relation(fields: [cartsId], references: [id])
-  cartsId     Int?
+  id             Int              @id @default(autoincrement())
+  name           String           @db.VarChar(255)
+  type           String           @db.VarChar(255)
+  cost           Float            @db.Float
+  description    String           @db.Text
+  stock          Int              @db.Int
+  photoUrl       String           @db.Text
+  productsOnCart productsOnCart[]
+}
+
+model productsOnCart {
+  id       Int   @id @default(autoincrement())
+  quantity Int   @db.Int
+  cost     Float @db.Float
+
+  cartsId    Int      @db.Int
+  carts      carts    @relation(fields: [cartsId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productsId Int      @db.Int
+  products   products @relation(fields: [productsId], references: [id])
 }

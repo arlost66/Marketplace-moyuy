@@ -2,47 +2,48 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 
-
-
 const {
-    userHomepage,
-    getRegister,
-    getLogin,
-    postRegister,
-    checkAuthenticated,
-    checkNotAuthenticated,
-    getShop,
-    getProduct,
-    getOrder,
-    getCart,
-    logout
+  userHomepage,
+  getRegister,
+  getLogin,
+  postRegister,
+  checkAuthenticated,
+  checkNotAuthenticated,
+  getShop,
+  getProduct,
+  getOrder,
+  getCart,
+  addToCart,
+  logout,
 } = require('../controllers/users.js');
 
+router.route('/').get(checkAuthenticated, userHomepage); // CUSTOMER AND ADMIN LANDING PAGE
 
-router.route('/')
-    .get(checkAuthenticated, userHomepage); // CUSTOMER AND ADMIN LANDING PAGE
+router
+  .route('/register') // CUSTOMER AND ADMIN REGISTER PAGE
+  .get(checkNotAuthenticated, getRegister)
+  .post(checkNotAuthenticated, postRegister);
+router
+  .route('/login') // CUSTOMER AND ADMIN LOGiN PAGE
+  .get(checkNotAuthenticated, getLogin)
 
-router.route('/register')// CUSTOMER AND ADMIN REGISTER PAGE
-    .get(checkNotAuthenticated, getRegister)
-    .post(checkNotAuthenticated, postRegister);
-router.route('/login')// CUSTOMER AND ADMIN LOGiN PAGE
-    .get(checkNotAuthenticated, getLogin)
+  .post(
+    checkNotAuthenticated,
+    passport.authenticate('local', {
+      successRedirect: '/',
+      failureRedirect: '/login',
+      failureFlash: true,
+    })
+  );
 
-    .post(checkNotAuthenticated, passport.authenticate('local', {
-        successRedirect: '/',
-        failureRedirect: '/login',
-        failureFlash: true
-    }));
+router
+  .route('/logout') //LOGOUT BUTTON
+  .get(logout)
+  .delete(logout);
 
-router.route('/logout') //LOGOUT BUTTON
-    .get(logout)
-    .delete(logout);
+router.route('/shop').get(checkAuthenticated, getShop);
 
+router.route('/shop/:id').get(checkAuthenticated, getProduct);
+router.route('/cart').get(getCart).post(addToCart);
 
-router.route('/shop').get(checkAuthenticated, getShop)
-
-router.route('/shop/:id').get(checkAuthenticated, getProduct)
-//router.route('/cart').get(checkAuthenticated, getOrder)
-
-
-module.exports = router
+module.exports = router;
