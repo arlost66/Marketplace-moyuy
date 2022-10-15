@@ -1,1 +1,10 @@
-Product = <%= data.product %>
+<%= data[0].productsOnCart.products %> <% for( let index = 0; index <
+data[0].productsOnCart.length; index++ ) { %>
+<h2><%= data[0].productsOnCart[index].products.cost %></h2>
+<img
+  src="<%=data[0].productsOnCart[index].products.photoUrl%>"
+  alt=""
+  class="src"
+/>
+<% } %>
+<h2>Your cart total<%= data[0].total%></h2>

@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `productsoncart` MODIFY `id` INTEGER NOT NULL AUTO_INCREMENT;
