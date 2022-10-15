@@ -113,6 +113,23 @@ async function getProduct(req, res) {
     }
 }
 
+async function getCart(req, res) {
+    try {
+        const user = await req.user;
+        const data = await prisma.carts.findUnique({
+            where: {
+                userId: user.id,
+            },
+        })
+        console.log(user);
+        console.log(data);
+        res.render('users/cart', { data, name: user.name });
+    } catch (error) {
+        throw error
+    }
+}
+
+
 async function getOrder(req, res) {
     try {
         const user = await req.user;
@@ -169,7 +186,7 @@ module.exports = {
     checkAuthenticated,
     checkNotAuthenticated,
     getShop,
-
+    getCart,
     getProduct,
     logout,
 

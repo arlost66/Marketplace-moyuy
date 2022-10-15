@@ -15,6 +15,7 @@ const {
     getProduct,
     getOrder,
     getCart,
+    addToCart,
     logout
 } = require('../controllers/users.js');
 
@@ -42,7 +43,8 @@ router.route('/logout') //LOGOUT BUTTON
 router.route('/shop').get(checkAuthenticated, getShop)
 
 router.route('/shop/:id').get(checkAuthenticated, getProduct)
-//router.route('/cart').get(checkAuthenticated, getOrder)
+router.route('/cart').get(checkAuthenticated, getCart)
+    .post(checkAuthenticated, addToCart)
 
 
 module.exports = router
