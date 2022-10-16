@@ -115,7 +115,6 @@ async function editProductManagement(req, res) {
 
 async function deleteProductManagement(req, res) {
   try {
-    console.log(req.body.id);
     const data = await prisma2.products.delete({
       where: {
         id: parseInt(req.body.id),

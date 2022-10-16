@@ -2,7 +2,17 @@
 <img src="<%=data.photoUrl%>" alt="<%=data.name%>" />
 
 <h4>Description</h4>
-<%- datas.description %> <% } else {%>
+<%- data.description %> <%- data.cost %>
+
+<form action="/shop/<%=data.id%>" method="post">
+  <label for="quantity">Quantity</label>
+  <input type="number" name="quantity" id="quantity" min="1" />
+  <input type="number" name="cost" value="<%=data.cost%>" hidden />
+  <input type="number" name="product" value="<%=data.id%>" hidden />
+  <button type="submit">Add to cart</button>
+</form>
+
+<% } else {%>
 <h1>Product is not availabe</h1>
 <% } %>
 

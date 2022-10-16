@@ -38,14 +38,9 @@
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
               <div class="text-center">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#productModal"
+                <a href="/shop/<%=element.id%>" class="btn btn-primary"
+                  >View Product</a
                 >
-                  View Product
-                </button>
               </div>
             </div>
           </div>
@@ -53,40 +48,8 @@
       </div>
     </div>
   </section>
-  <!--Product View Modal-->
-  <div
-    class="modal fade"
-    id="productModal"
-    tabindex="-1"
-    aria-labelledby="Product"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">
-            <%=element.name%>
-          </h1>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <img class="card-img-top" src="<%= element.photoUrl %>" alt="..." />
-          <h5 class="fw-bolder"><%=element.name%></h5>
-          <h5 class="fw-bolder"><%=element.type%></h5>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<% })} else {%>
-<h1>No product available</h1>
-<%}%>
+  <% })} else {%>
+  <h1>No product available</h1>
+  <%}%>
+</div>

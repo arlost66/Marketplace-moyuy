@@ -134,13 +134,13 @@ async function addToCart(req, res) {
         userId: user.id,
       },
       data: {
-        total: { increment: cost },
+        total: { increment: parseFloat(cost) * parseFloat(quantity) },
       },
     });
     await prisma.productsOnCart.create({
       data: {
-        quantity,
-        cost,
+        quantity: parseInt(quantity),
+        cost: parseFloat(cost),
         carts: {
           connect: {
             id: cart.id,
@@ -148,12 +148,12 @@ async function addToCart(req, res) {
         },
         products: {
           connect: {
-            id: product,
+            id: parseInt(product),
           },
         },
       },
     });
-    res.redirect('/users/shop');
+    res.redirect('/shop');
   } catch (error) {
     throw new Error(error);
   }
@@ -170,6 +170,16 @@ async function getOrder(req, res) {
     });
   } catch (error) {
     throw new Error(error);
+  }
+}
+
+async function getAbout(req, res) {
+  try {
+
+    const user = await req.user
+    res.render('about-us', { name: user.name });
+  } catch (error) {
+
   }
 }
 
@@ -209,4 +219,5 @@ module.exports = {
   getProduct,
   logout,
   addToCart,
+  getAbout
 };
