@@ -2,7 +2,7 @@
   class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top shadow-md h-auto p-1"
 >
   <div class="container-fluid">
-    <a class="navbar-brand text-light me-3 py-3 me-md-5" href="/">
+    <a class="navbar-brand text-light me-3 py-3 me-md-5" href="/admin/customer-management">
       <img
         src="/img/logo.svg"
         alt="Logo"
@@ -26,35 +26,35 @@
       <div class="p-2 ms-5">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link text-light mx-2" href="/">Home</a>
+            <a class="nav-link lead text-light mx-2" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light mx-2" href="/shop">Shop</a>
+            <a class="nav-link lead text-light mx-2" href="/shop">Shop</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light mx-2" href="/about-us">About</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link text-light mx-2" href="/admin/product-management"
-              >ADMIN</a
+            <a class="nav-link lead text-light mx-2" href="/admin/product-management"
+              >About</a
             >
           </li>
         </ul>
       </div>
-
       <div class="d-flex flex-column flex-lg-row ms-5 p-2">
         <hr class="d-md-none d-inline border-3 border-top border-primary" />
         <div class="p-2">
-          <a class="nav-link text-decoration-none text-light" href="#"
-            ><%= name %>
+          <a class="nav-link text-decoration-none lead text-light" href="">
+            <i class="bi bi-cart d-none d-sm-inline mx-2"></i>
+            <span class="d-none d-sm-inline">Cart</span>
           </a>
         </div>
         <div class="d-lg-inline d-none text-light m-2">|</div>
-        <div class="p-2">
-          <a class="nav-link text-decoration-none text-light" href="/logout"
-            >Sign out
+        <div class="nav-item dropdown p-2">
+          <a class="nav-link dropdown-toggle text-decoration-none lead text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+            ><i class="bi bi-person-circle mx-2 "></i><%= name %>
           </a>
+          <ul class="dropdown-menu dropdown-menu-dark" >
+            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+            <li><a class="dropdown-item" href="/logout">Signout</a></li>
+          </ul>
         </div>
       </div>
     </div>
