@@ -206,7 +206,7 @@ async function getAbout(req, res) {
   try {
 
     const user = await req.user
-    res.render('about-us', { name: user.name });
+    res.render('users/about-us', { name: user.name });
   } catch (error) {
 
   }

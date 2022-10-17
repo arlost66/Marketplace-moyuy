@@ -14,16 +14,19 @@
 </div>
 
 
-<% if(data.length >0){ %> <% data.forEach(element => { %>
+
 <div class="container-fluid p-0" style="margin-top: 12vh">
   <!--SHOP SECTION-->
   <section class="py-5">
+    
     <div class="container px-4 px-lg-5 mt-5">
+      <h1 class="my-3" >Betamoyuy's Shop</h1>
       <div
-        class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+        class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 p-3 justify-content-center border rounded-3 border-4 border-dark border-solid"
       >
+        <% if(data.length >0){ %> <% data.forEach(element => { %>
         <div class="col mb-5">
-          <div class="card h-100">
+          <div class="card h-100 border border-secondary border-2">
             <!-- Product image-->
             <img class="card-img-top" src="<%= element.photoUrl %>" alt="..." />
             <!-- Product details-->
@@ -32,24 +35,23 @@
                 <!-- Product name-->
                 <h5 class="fw-bolder"><%=element.name%></h5>
                 <!-- Product price-->
-                <p>Cost:<%=element.cost%></p>
+                <p>Cost: &#8369;<%=element.cost%>.00 </p>
               </div>
             </div>
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
               <div class="text-center">
-                <a href="/shop/<%=element.id%>" class="btn btn-primary"
+                <a href="/shop/<%=element.id%>" class="btn btn-dark"
                   >View Product</a
                 >
               </div>
             </div>
           </div>
         </div>
+        <% })} else {%>
+        <h1>No product available</h1>
+        <%}%>
       </div>
     </div>
   </section>
-
-  <% })} else {%>
-  <h1>No product available</h1>
-  <%}%>
 </div>
