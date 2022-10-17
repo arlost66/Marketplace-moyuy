@@ -23,9 +23,9 @@ const {
 
 //prefix admin
 
-adminRouter
+/* adminRouter
   .route('/') //homepage sa admin
-  .get(checkAuthenticated, isAdmin, adminHomepage); //admin Dashboard Route
+  .get(checkAuthenticated, isAdmin, adminHomepage); //admin Dashboard Route */
 
 adminRouter
   .route('/customer-management')

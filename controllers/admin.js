@@ -22,12 +22,13 @@ async function isAdmin(req, res, next) {
 async function getCustomerManagement(req, res) {
   //query all users by email alphabetically
   try {
+    const name = await req.user;
     const data = await prisma2.users.findMany({
       orderBy: {
         email: 'asc',
       },
     });
-    res.render('admin/customer-management', { title: 'Customer Data', data });
+    res.render('admin/customer-management', { title: 'Customer Data', data, name: name });
   } catch (error) {
     throw error;
   }

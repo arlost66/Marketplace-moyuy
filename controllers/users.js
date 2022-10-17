@@ -66,15 +66,7 @@ async function postRegister(req, res) {
 function getLogin(req, res) {
   res.render('users/login'); //render is file location.
 }
-//controller for post login is in ROUTER
 
-/*function postLogin() {
-    passport.authenticate('local', {
-        successRedirect: '/users/homepage',
-        failureRedirect: '/users/login',
-        failureFlash: true
-    })
-}*/
 
 async function getShop(req, res) {
   try {
