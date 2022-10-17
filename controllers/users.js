@@ -58,7 +58,7 @@ async function postRegister(req, res) {
     });
     res.redirect('/login');
   } catch (error) {
-    new Error('Email already exists');
+    new Error('Email already exists!');
     res.redirect('/register');
   }
 }

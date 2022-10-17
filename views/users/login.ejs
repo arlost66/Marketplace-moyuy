@@ -6,7 +6,6 @@
     <div class="container">
       <form class="d-flex flex-column" action="/login" method="post">
         <div class="mt-4 mb-1">
-          <% if(messages.error){ %> <%= messages.error%> <% }%>
           <label for="emailInput" class="form-label mb-0">Email address</label>
           <input
             type="email"
@@ -16,8 +15,9 @@
             aria-describedby="emailHelp"
             required
           />
+          <% if(messages.error){ %> <p class="text-danger"><%= messages.error%></p> <% }%>
         </div>
-        <div class="mt-0">
+        <div class="mt-2">
           <label for="passwordInput" class="form-label mb-0">Password</label>
           <input
             type="password"
