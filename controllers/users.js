@@ -134,7 +134,9 @@ async function addToCart(req, res) {
         userId: user.id,
       },
       data: {
-        total: { increment: parseFloat(cost) * parseFloat(quantity) },
+        total: {
+          increment: (parseFloat(cost) * parseInt(quantity))
+        },
       },
     });
     await prisma.productsOnCart.create({

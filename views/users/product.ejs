@@ -1,12 +1,12 @@
 <% if(data){%>
 <img src="<%=data.photoUrl%>" alt="<%=data.name%>" />
 
-<h4>Description</h4>
-<%- data.description %> <%- data.cost %>
+<h4>Description<%- data.description %></h4>
+<h4>Cost: <%- data.cost %></h4>
 
 <form action="/shop/<%=data.id%>" method="post">
   <label for="quantity">Quantity</label>
-  <input type="number" name="quantity" id="quantity" min="1" />
+  <input type="number" name="quantity" id="quantity" min="1" required />
   <input type="number" name="cost" value="<%=data.cost%>" hidden />
   <input type="number" name="product" value="<%=data.id%>" hidden />
   <button type="submit">Add to cart</button>
