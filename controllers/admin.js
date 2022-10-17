@@ -33,6 +33,7 @@ async function getCustomerManagement(req, res) {
     throw error;
   }
 }
+
 async function editCustomerManagement(req, res) {
   try {
     const original = await prisma2.users.findUnique({

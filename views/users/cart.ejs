@@ -1,15 +1,62 @@
-<%const total = 0%> <%= data[0].productsOnCart.products %> <% for( let index =
-0; index < data[0].productsOnCart.length; index++ ) { %>
+<%- include('../partials/header'); %>
 
-<img
-  src="<%=data[0].productsOnCart[index].products.photoUrl%>"
-  alt=""
-  class="src"
-/>
-<h2>Product ID<%= data[0].productsOnCart[index].id %></h2>
-<h2>Price <%= data[0].productsOnCart[index].products.cost %></h2>
-<h2>Quantity <%- data[0].productsOnCart[index].quantity %></h2>
-<form action="/cart?_method=DELETE" method="post">
+<section class="vh-100" >
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <p>
+          <span class="h2">Shopping Cart </span>
+        </p>
+        <%const totals = 0%> <%= data[0].productsOnCart.products %> <% for( let
+        index =0; index < data[0].productsOnCart.length; index++ ) { %>
+        <div class="card mb-4">
+          <div class="card-body p-4">
+            <div class="row align-items-center">
+              <div class="col-md-2">
+                <img
+                  src="<%=data[0].productsOnCart[index].products.photoUrl%>"
+                  class="img-fluid"
+                  alt="<%=data[0].productsOnCart[index].products.name%>"
+                />
+              </div>
+              <div class="col-md-2 d-flex justify-content-center">
+                <div>
+                  <p class="small text-muted mb-4 pb-2">Name</p>
+                  <p class="lead fw-normal mb-0">
+                    <%=data[0].productsOnCart[index].products.name%>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-2 d-flex justify-content-center">
+                <div>
+                  <p class="small text-muted mb-4 pb-2">On Stock</p>
+                  <p class="lead fw-normal mb-0">
+                    <%=data[0].productsOnCart[index].products.stock%>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-2 d-flex justify-content-center">
+                <div>
+                  <p class="small text-muted mb-4 pb-2"># of units</p>
+                  <p class="lead fw-normal mb-0">
+                    <%=data[0].productsOnCart[index].quantity%>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-2 d-flex justify-content-center">
+                <div>
+                  <p class="small text-muted mb-4 pb-2">Price</p>
+                  <p class="lead fw-normal mb-0">
+                    ₱<%= data[0].productsOnCart[index].products.cost %>
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-2 d-flex justify-content-center">
+                <div>
+                  <p class="small text-muted mb-4 pb-2"></p>
+                  <p class="lead fw-normal mb-0">
+                    <form action="/cart?_method=DELETE" method="post">
   <input
     type="number"
     hidden
@@ -29,9 +76,40 @@
     value="<%= data[0].productsOnCart[index].quantity %>"
     name="quantity"
   />
-
-  <button type="submit">Remove from Cart</button>
+ <button type="submit" class="btn btn-primary btn-lg">
+                      Remove
+                    </button>
+  
 </form>
+                   
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
 
-<% } %>
-<h2>Your cart total<%= data[0].total%></h2>
+        <div class="card mb-5">
+          <div class="card-body p-4">
+            <div class="float-end">
+              <p class="mb-0 me-5 d-flex align-items-center">
+                <span class="small text-muted me-2">Order total:</span>
+                <span class="lead fw-normal">₱<%= data[0].total%></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <a href="/shop"> <button type="button" class="btn btn-light btn-lg me-2">
+            Continue shopping
+          </button></a>
+         
+
+          <button type="button" class="btn btn-primary btn-lg">Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
