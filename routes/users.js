@@ -16,6 +16,7 @@ const {
   addToCart,
   getAbout,
   logout,
+  deleteProductOnCart,
 } = require('../controllers/users.js');
 
 router.route('/').get(checkAuthenticated, userHomepage); // CUSTOMER AND ADMIN LANDING PAGE
@@ -45,7 +46,7 @@ router
 router.route('/shop').get(checkAuthenticated, getShop);
 
 router.route('/shop/:id').get(checkAuthenticated, getProduct).post(checkAuthenticated, addToCart);
-router.route('/cart').get(checkAuthenticated, getCart).post(checkAuthenticated, addToCart);
+router.route('/cart').get(checkAuthenticated, getCart).post(checkAuthenticated, addToCart).delete(checkAuthenticated, deleteProductOnCart);
 router.route('/about-us').get(checkAuthenticated, getAbout)
 
 module.exports = router;

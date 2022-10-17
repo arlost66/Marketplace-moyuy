@@ -6,8 +6,32 @@
   alt=""
   class="src"
 />
+<h2>Product ID<%= data[0].productsOnCart[index].id %></h2>
 <h2>Price <%= data[0].productsOnCart[index].products.cost %></h2>
 <h2>Quantity <%- data[0].productsOnCart[index].quantity %></h2>
+<form action="/cart?_method=DELETE" method="post">
+  <input
+    type="number"
+    hidden
+    value="<%= data[0].productsOnCart[index].id%>"
+    name="product"
+  />
+  <input
+    type="number"
+    hidden
+    value="<%= data[0].productsOnCart[index].products.cost%>"
+    name="cost"
+  />
+
+  <input
+    type="number"
+    hidden
+    value="<%= data[0].productsOnCart[index].quantity %>"
+    name="quantity"
+  />
+
+  <button type="submit">Remove from Cart</button>
+</form>
 
 <% } %>
 <h2>Your cart total<%= data[0].total%></h2>

@@ -161,6 +161,33 @@ async function addToCart(req, res) {
   }
 }
 
+async function deleteProductOnCart(req, res) {
+  const { product, cost, quantity } = req.body;
+  const user = await req.user;
+  try {
+    const cart = await prisma.carts.update({
+      where: {
+        userId: user.id,
+      },
+      data: {
+        total: {
+          decrement: (parseFloat(cost) * parseInt(quantity))
+        },
+      },
+    });
+
+    await prisma.productsOnCart.delete({
+      where: {
+        id: parseInt(product),
+      }
+    })
+
+    res.redirect('/cart');
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 async function getOrder(req, res) {
   try {
     const user = await req.user;
@@ -221,5 +248,6 @@ module.exports = {
   getProduct,
   logout,
   addToCart,
+  deleteProductOnCart,
   getAbout
 };
