@@ -84,14 +84,14 @@ async function getShop(req, res) {
 //the solo product
 async function getProduct(req, res) {
   const temp = parseInt(req.params.id);
-
+  const user = await req.user;
   try {
     const data = await prisma.products.findUnique({
       where: {
         id: temp,
       },
     });
-    res.render('users/product', { data });
+    res.render('users/product', { data, name: user.name });
   } catch (error) {
     throw error;
   }
