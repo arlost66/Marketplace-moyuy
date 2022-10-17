@@ -1,5 +1,3 @@
-<h2>Customer management Page</h2>
-
 <!--'data' kay ang variable for all User sa database
 <% if(data.length >0) %> <% data.forEach(element => { %>
 <div><%=element.name %></div>
@@ -72,7 +70,7 @@
               height="28"
               class="rounded-circle"
             />
-            <span class="d-none d-sm-inline mx-1">User</span>
+            <span class="d-none d-sm-inline mx-1"><%=name.name%></span>
           </a>
           <ul
             class="dropdown-menu dropdown-menu-dark text-small shadow"
@@ -92,22 +90,32 @@
     <div class="col d-flex flex-column h-sm-100">
       <main class="row overflow-auto">
         <div class="col pt-4">
-          <h1>Template</h1>
-          <p class="mb-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
-            possimus optio ab impedit neque reprehenderit.
-          </p>
+          <h1>Customer Management</h1>
+          <p class="mb-4">Beta Market website customer manager</p>
           <hr class="border border-top-5 border-dark opacity-100" />
-          <div
-            class="container text-tertiary d-flex flex-row my-4 position-relative"
-          >
-            <h5>Sort</h5>
-            <h5>Filter</h5>
-            <h5>Sort</h5>
-            <h5>Searchbar</h5>
+          <div class="container-fluid text-dark my-4">
+            <div class="row justify-content-end align-items-center">
+              <div class="col">
+                <h5 class="mx-2">List of Customers</h5>
+              </div>
+              <div class="col-7 col-md-5">
+                <div class="input-group rounded">
+                  <input
+                    type="search"
+                    class="form-control rounded"
+                    placeholder="Search Customer"
+                    aria-label="Search"
+                    aria-describedby="search-addon"
+                  />
+                  <span class="input-group-text border-0" id="search-addon">
+                    <i class="bi bi-search"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="container-fluid">
-            <table class="table bg-secondary text-tertiary">
+            <table class="table bg-secondary text-dark">
               <thead>
                 <tr>
                   <th scope="col">Name</th>
@@ -158,14 +166,6 @@
               </ul>
             </nav>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            sunt dicta perferendis? Cumque unde quibusdam voluptatum sequi
-            nobis, architecto ab voluptates. Veritatis suscipit beatae quam
-            asperiores reprehenderit laborum in, error architecto placeat nam
-            repellendus labore rerum quidem maiores. Quidem debitis fuga
-            voluptatibus omnis facere odit animi aliquid assumenda?
-          </p>
         </div>
       </main>
     </div>

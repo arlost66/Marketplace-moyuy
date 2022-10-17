@@ -58,7 +58,7 @@ async function postRegister(req, res) {
     });
     res.redirect('/login');
   } catch (error) {
-    new Error('Email already exists');
+    new Error('Email already exists!');
     res.redirect('/register');
   }
 }
@@ -66,15 +66,7 @@ async function postRegister(req, res) {
 function getLogin(req, res) {
   res.render('users/login'); //render is file location.
 }
-//controller for post login is in ROUTER
 
-/*function postLogin() {
-    passport.authenticate('local', {
-        successRedirect: '/users/homepage',
-        failureRedirect: '/users/login',
-        failureFlash: true
-    })
-}*/
 
 async function getShop(req, res) {
   try {
@@ -206,7 +198,7 @@ async function getAbout(req, res) {
   try {
 
     const user = await req.user
-    res.render('about-us', { name: user.name });
+    res.render('users/about-us', { name: user.name });
   } catch (error) {
 
   }

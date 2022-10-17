@@ -1,14 +1,11 @@
-<div class="content d-md-flex flex-row-reverse vh-100">
-  <!--Login Bar-->
+<div class="container-fluid d-flex flex-row-reverse vh-100 bg-dark px-0 mx-0">
   <div
-    class="login d-flex align-items-start justify-content-center flex-column flex-shrink-0 p-5 bg-white shadow h-100"
-    style="width: 37%"
+    class="container d-flex align-self-end align-items-start justify-content-center flex-column mx-5 bg-light shadow h-100 w-75"
   >
-    <h1 class="text-primary display-2 fw-semibold">Sign In</h1>
+    <h1 class="text-dark display-2 fw-semibold">Sign In</h1>
     <div class="container">
       <form class="d-flex flex-column" action="/login" method="post">
-        <div class="mt-4 mb-1 shadow">
-          <% if(messages.error){ %> <%= messages.error%> <% }%>
+        <div class="mt-4 mb-1">
           <label for="emailInput" class="form-label mb-0">Email address</label>
           <input
             type="email"
@@ -18,8 +15,9 @@
             aria-describedby="emailHelp"
             required
           />
+          <% if(messages.error){ %> <p class="text-danger"><%= messages.error%></p> <% }%>
         </div>
-        <div class="mt-0 shadow">
+        <div class="mt-2">
           <label for="passwordInput" class="form-label mb-0">Password</label>
           <input
             type="password"
@@ -35,49 +33,37 @@
         </div>
 
         <button
-          class="btn btn-primary m-2 align-self-center shadow"
-          style="width: 20%"
+          class="btn btn-dark m-2 align-self-center shadow px-3 py-1"
           id="loginBtn"
         >
           LOGIN
         </button>
       </form>
-      <div class="container d-flex flex-column">
-        <hr class="border border-solid border-primary" />
+      <div class="container d-flex flex-column text-dark">
+        <hr class="border border-solid border-dark" />
         <div
           class="container d-flex flex-row align-content-center justify-content-center"
         >
-          <a class="color-primary mx-2 h2">
-            <i class="bi bi-google shadow"></i>
+          <a class="color-dark mx-2 h2" href="https://www.google.com/">
+            <i class="bi bi-google text-dark shadow"></i>
           </a>
-          <a class="color-primary mx-2 h2">
-            <i class="bi bi-facebook shadow"></i>
+          <a class="color-dark mx-2 h2" href="https://www.facebook.com/">
+            <i class="bi bi-facebook text-dark shadow"></i>
           </a>
         </div>
 
         <div class="h6 my-3 align-self-center">
           Need an acount?<a class="ms-1" href="/register">SIGN UP</a>
         </div>
-        <!-- 
-        <a
-          href="/register"
-          class="btn btn-primary shadow m-2 px-4 align-self-center"
-          id="registerBtn"
-        >
-          Register
-        </a> -->
+      
       </div>
     </div>
   </div>
-  <!--Content-->
   <div
-    class="container-fluid d-flex flex-column align-content-center justify-content-center flex-fill bg-primary h-100"
-    style="width: 63%"
+    class="container d-none d-md-flex flex-column align-content-center justify-content-center flex-fill bg-dark mx-5"
   >
-    <h1 class="display-1 fw-bold text-light mx-5">
-      <img src="/public/img/undraw_developer_activity_re_39tg.svg" alt="" />
-      Betamoyuy Market
-      <hr class="border border-top-5 border-light opacity-100" />
+      <img src="/img/large-logo.svg" alt="" />
     </h1>
   </div>
 </div>
+

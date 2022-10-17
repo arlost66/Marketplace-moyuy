@@ -1,35 +1,3 @@
-<h2>Product Management page</h2>
-<!--Add product Add form for modal-->
-<!--
-<form action="/admin/product-management" method="post">
-  <div>
-    <label for="name">Name: </label>
-    <input type="text" id="name" name="name" required />
-  </div>
-
-  <div>
-    <label for="type">Type:</label>
-    <input type="text" name="type" id="type" required />
-  </div>
-
-  <div>
-    <label for="cost">Cost:</label>
-    <input type="number" name="cost" id="cost" step="0.01" min="0" required />
-  </div>
-
-  <div>
-    <label for="description">Description:</label>
-    <input type="text" name="description" id="description" required />
-  </div>
-
-  <div>
-    <label for="stock">Stock:</label>
-    <input type="number" name="stock" id="stock" required />
-  </div>
-  <div>
-    <input type="submit" />
-</form> -->
-
 <div class="container-fluid overflow-hidden">
   <div class="row vh-100 overflow-auto">
     <div
@@ -117,27 +85,39 @@
     <div class="col d-flex flex-column h-sm-100">
       <main class="row overflow-auto">
         <div class="col pt-4">
-          <h1>Template</h1>
+          <h1>Product Management</h1>
           <p class="mb-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
-            possimus optio ab impedit neque reprehenderit.
+            Beta Market Product manager
           </p>
           <hr class="border border-top-5 border-dark opacity-100" />
           <div
-            class="container text-tertiary d-flex flex-row my-4 position-relative"
+            class="container text-dark my-2"
           >
-            <h5>Sort</h5>
-            <h5>Filter</h5>
-            <h5>Sort</h5>
-            <h5>Searchbar</h5>
-            <button
-              class="btn btn-dark position-absolute text-white end-0 mx-1 me-3 w-auto"
-              data-bs-toggle="modal"
-              data-bs-target="#addModal"
-            >
-              <i class="bi-plus-circle d-md-none d-inline mx-1 pb-2"></i>
-              <span class="ms-1 d-none d-sm-inline">Add</span>
-            </button>
+          
+          
+          <div class="row justify-content-end align-items-center">
+            <div class="col">
+              <h5 class="ms-1">
+                Products
+                <button
+                    class="btn text-dark w-auto"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addModal"
+                  >
+                    <i class="bi-plus-circle w-25j"></i>
+                </button>
+              
+              </h5>
+            </div>
+            <div class="col-7 col-md-5 ">
+              <div class="input-group rounded">
+                <input type="search" class="form-control rounded" placeholder="Search Product" aria-label="Search" aria-describedby="search-addon" />
+                <span class="input-group-text border-0" id="search-addon">
+                  <i class="bi bi-search"></i>
+                </span>
+              </div>
+            </div>
+          </div>
           </div>
           <div class="container-fluid">
             <table class="table bg-secondary text-tertiary">
@@ -202,14 +182,6 @@
               </ul>
             </nav>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            sunt dicta perferendis? Cumque unde quibusdam voluptatum sequi
-            nobis, architecto ab voluptates. Veritatis suscipit beatae quam
-            asperiores reprehenderit laborum in, error architecto placeat nam
-            repellendus labore rerum quidem maiores. Quidem debitis fuga
-            voluptatibus omnis facere odit animi aliquid assumenda?
-          </p>
         </div>
       </main>
     </div>
